@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -b tsconfig.json",
-    "cli": "node --experimental-specifier-resolution=node --experimental-fetch --trace-warnings build/index.js"
+    "cli": "node --experimental-specifier-resolution=node --experimental-fetch build/index.js"
   },
   "keywords": [
     "headhunter",
