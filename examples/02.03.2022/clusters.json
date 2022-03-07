@@ -1,0 +1,1572 @@
+{
+  "area": {
+    "name": "Регион",
+    "id": "area",
+    "items": [
+      {
+        "name": "Москва",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1",
+        "count": 25648
+      },
+      {
+        "name": "Санкт-Петербург",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=2",
+        "count": 9694
+      },
+      {
+        "name": "Республика Татарстан",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1624",
+        "count": 2242
+      },
+      {
+        "name": "Свердловская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1261",
+        "count": 2167
+      },
+      {
+        "name": "Новосибирская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1202",
+        "count": 2066
+      },
+      {
+        "name": "Московская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=2019",
+        "count": 1777
+      },
+      {
+        "name": "Краснодарский край",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1438",
+        "count": 1751
+      },
+      {
+        "name": "Нижегородская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1679",
+        "count": 1599
+      },
+      {
+        "name": "Ростовская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1530",
+        "count": 1294
+      },
+      {
+        "name": "Самарская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1586",
+        "count": 1174
+      },
+      {
+        "name": "Воронежская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1844",
+        "count": 883
+      },
+      {
+        "name": "Пермский край",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1317",
+        "count": 801
+      },
+      {
+        "name": "Челябинская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1384",
+        "count": 735
+      },
+      {
+        "name": "Республика Башкортостан",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1347",
+        "count": 673
+      },
+      {
+        "name": "Томская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1255",
+        "count": 660
+      },
+      {
+        "name": "Красноярский край",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1146",
+        "count": 627
+      },
+      {
+        "name": "Омская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1249",
+        "count": 545
+      },
+      {
+        "name": "Саратовская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1596",
+        "count": 506
+      },
+      {
+        "name": "Тюменская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1342",
+        "count": 468
+      },
+      {
+        "name": "Ярославская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1806",
+        "count": 468
+      },
+      {
+        "name": "Удмуртская Республика",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1646",
+        "count": 451
+      },
+      {
+        "name": "Волгоградская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1511",
+        "count": 441
+      },
+      {
+        "name": "Приморский край",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1948",
+        "count": 421
+      },
+      {
+        "name": "Калининградская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1020",
+        "count": 369
+      },
+      {
+        "name": "Алтайский край",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1217",
+        "count": 364
+      },
+      {
+        "name": "Иркутская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1124",
+        "count": 336
+      },
+      {
+        "name": "Ульяновская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1614",
+        "count": 336
+      },
+      {
+        "name": "Кемеровская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1229",
+        "count": 334
+      },
+      {
+        "name": "Республика Крым",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=2114",
+        "count": 322
+      },
+      {
+        "name": "Ставропольский край",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1481",
+        "count": 308
+      },
+      {
+        "name": "Тульская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1913",
+        "count": 304
+      },
+      {
+        "name": "Тверская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1783",
+        "count": 302
+      },
+      {
+        "name": "Рязанская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1704",
+        "count": 296
+      },
+      {
+        "name": "Белгородская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1817",
+        "count": 284
+      },
+      {
+        "name": "Чувашская Республика",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1652",
+        "count": 254
+      },
+      {
+        "name": "Владимирская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1716",
+        "count": 238
+      },
+      {
+        "name": "Калужская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1859",
+        "count": 238
+      },
+      {
+        "name": "Кировская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1661",
+        "count": 237
+      },
+      {
+        "name": "Хабаровский край",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1975",
+        "count": 216
+      },
+      {
+        "name": "Пензенская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1575",
+        "count": 215
+      },
+      {
+        "name": "Оренбургская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1563",
+        "count": 202
+      },
+      {
+        "name": "Вологодская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1739",
+        "count": 191
+      },
+      {
+        "name": "Курская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1880",
+        "count": 191
+      },
+      {
+        "name": "Ханты-Мансийский АО - Югра",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1368",
+        "count": 190
+      },
+      {
+        "name": "Ивановская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1754",
+        "count": 182
+      },
+      {
+        "name": "Липецкая область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1890",
+        "count": 177
+      },
+      {
+        "name": "Республика Марий Эл",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1620",
+        "count": 171
+      },
+      {
+        "name": "Брянская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1828",
+        "count": 153
+      },
+      {
+        "name": "Смоленская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1103",
+        "count": 128
+      },
+      {
+        "name": "Орловская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1898",
+        "count": 117
+      },
+      {
+        "name": "Костромская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1771",
+        "count": 114
+      },
+      {
+        "name": "Архангельская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1008",
+        "count": 110
+      },
+      {
+        "name": "Республика Мордовия",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1556",
+        "count": 109
+      },
+      {
+        "name": "Тамбовская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1905",
+        "count": 105
+      },
+      {
+        "name": "Мурманская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1061",
+        "count": 103
+      },
+      {
+        "name": "Астраханская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1505",
+        "count": 99
+      },
+      {
+        "name": "Республика Дагестан",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1424",
+        "count": 95
+      },
+      {
+        "name": "Курганская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1308",
+        "count": 88
+      },
+      {
+        "name": "Ленинградская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=145",
+        "count": 88
+      },
+      {
+        "name": "Псковская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1090",
+        "count": 75
+      },
+      {
+        "name": "Республика Карелия",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1077",
+        "count": 73
+      },
+      {
+        "name": "Республика Бурятия",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1118",
+        "count": 67
+      },
+      {
+        "name": "Амурская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1932",
+        "count": 64
+      },
+      {
+        "name": "Новгородская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1051",
+        "count": 56
+      },
+      {
+        "name": "Республика Саха (Якутия)",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1174",
+        "count": 54
+      },
+      {
+        "name": "Республика Коми",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1041",
+        "count": 53
+      },
+      {
+        "name": "Сахалинская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1960",
+        "count": 52
+      },
+      {
+        "name": "Республика Хакасия",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1187",
+        "count": 47
+      },
+      {
+        "name": "Забайкальский край",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1192",
+        "count": 44
+      },
+      {
+        "name": "Республика Северная Осетия-Алания",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1475",
+        "count": 44
+      },
+      {
+        "name": "Камчатский край",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1943",
+        "count": 34
+      },
+      {
+        "name": "Чеченская республика",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1500",
+        "count": 31
+      },
+      {
+        "name": "Республика Адыгея",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1422",
+        "count": 26
+      },
+      {
+        "name": "Ямало-Ненецкий АО",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1414",
+        "count": 25
+      },
+      {
+        "name": "Кабардино-Балкарская республика",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1463",
+        "count": 24
+      },
+      {
+        "name": "Республика Калмыкия",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1553",
+        "count": 17
+      },
+      {
+        "name": "Карачаево-Черкесская Республика",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1471",
+        "count": 15
+      },
+      {
+        "name": "Республика Ингушетия",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1434",
+        "count": 11
+      },
+      {
+        "name": "Республика Тыва",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1169",
+        "count": 10
+      },
+      {
+        "name": "Республика Алтай",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1216",
+        "count": 7
+      },
+      {
+        "name": "Магаданская область",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1946",
+        "count": 6
+      },
+      {
+        "name": "Еврейская АО",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1941",
+        "count": 3
+      },
+      {
+        "name": "Чукотский АО",
+        "url": "https://api.hh.ru/vacancies?clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&area=1982",
+        "count": 3
+      }
+    ]
+  },
+  "salary": {
+    "name": "Уровень дохода",
+    "id": "salary",
+    "items": [
+      {
+        "name": "Указан",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&only_with_salary=true",
+        "count": 29501
+      },
+      {
+        "name": "от 90000 руб.",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&only_with_salary=true&salary=90000",
+        "count": 18501
+      },
+      {
+        "name": "от 180000 руб.",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&only_with_salary=true&salary=180000",
+        "count": 8309
+      },
+      {
+        "name": "от 270000 руб.",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&only_with_salary=true&salary=270000",
+        "count": 3413
+      },
+      {
+        "name": "от 360000 руб.",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&only_with_salary=true&salary=360000",
+        "count": 1406
+      },
+      {
+        "name": "от 445000 руб.",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&only_with_salary=true&salary=445000",
+        "count": 755
+      }
+    ]
+  },
+  "professional_area": {
+    "name": "Профобласть",
+    "id": "professional_area",
+    "items": [
+      {
+        "name": "Информационные технологии, интернет, телеком",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=1",
+        "count": 48113
+      },
+      {
+        "name": "Продажи",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=17",
+        "count": 9796
+      },
+      {
+        "name": "Маркетинг, реклама, PR",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=3",
+        "count": 6924
+      },
+      {
+        "name": "Консультирование",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=12",
+        "count": 4901
+      },
+      {
+        "name": "Начало карьеры, студенты",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=15",
+        "count": 4065
+      },
+      {
+        "name": "Производство, сельское хозяйство",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=18",
+        "count": 2690
+      },
+      {
+        "name": "Транспорт, логистика",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=21",
+        "count": 2406
+      },
+      {
+        "name": "Строительство, недвижимость",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=20",
+        "count": 2245
+      },
+      {
+        "name": "Административный персонал",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=4",
+        "count": 1990
+      },
+      {
+        "name": "Рабочий персонал",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=29",
+        "count": 1835
+      },
+      {
+        "name": "Искусство, развлечения, масс-медиа",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=11",
+        "count": 1318
+      },
+      {
+        "name": "Бухгалтерия, управленческий учет, финансы предприятия",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=2",
+        "count": 1152
+      },
+      {
+        "name": "Управление персоналом, тренинги",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=6",
+        "count": 1087
+      },
+      {
+        "name": "Банки, инвестиции, лизинг",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=5",
+        "count": 891
+      },
+      {
+        "name": "Высший менеджмент",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=9",
+        "count": 716
+      },
+      {
+        "name": "Медицина, фармацевтика",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=13",
+        "count": 625
+      },
+      {
+        "name": "Закупки",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=26",
+        "count": 287
+      },
+      {
+        "name": "Наука, образование",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=14",
+        "count": 263
+      },
+      {
+        "name": "Инсталляция и сервис",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=25",
+        "count": 196
+      },
+      {
+        "name": "Юристы",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=23",
+        "count": 183
+      },
+      {
+        "name": "Домашний персонал",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=27",
+        "count": 145
+      },
+      {
+        "name": "Безопасность",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=8",
+        "count": 134
+      },
+      {
+        "name": "Спортивные клубы, фитнес, салоны красоты",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=24",
+        "count": 78
+      },
+      {
+        "name": "Туризм, гостиницы, рестораны",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=22",
+        "count": 73
+      },
+      {
+        "name": "Автомобильный бизнес",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=7",
+        "count": 44
+      },
+      {
+        "name": "Добыча сырья",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=10",
+        "count": 41
+      },
+      {
+        "name": "Государственная служба, некоммерческие организации",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=16",
+        "count": 16
+      },
+      {
+        "name": "Страхование",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&specialization=19",
+        "count": 8
+      }
+    ]
+  },
+  "industry": {
+    "name": "Отрасль компании",
+    "id": "industry",
+    "items": [
+      {
+        "name": "Информационные технологии, системная интеграция, интернет",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=7",
+        "count": 28903
+      },
+      {
+        "name": "Финансовый сектор",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=43",
+        "count": 5052
+      },
+      {
+        "name": "Услуги для бизнеса",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=44",
+        "count": 4237
+      },
+      {
+        "name": "Розничная торговля",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=41",
+        "count": 3351
+      },
+      {
+        "name": "Электроника, приборостроение, бытовая техника, компьютеры и оргтехника",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=8",
+        "count": 2733
+      },
+      {
+        "name": "СМИ, маркетинг, реклама, BTL, PR, дизайн, продюсирование",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=11",
+        "count": 2326
+      },
+      {
+        "name": "Строительство, недвижимость, эксплуатация, проектирование",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=13",
+        "count": 2152
+      },
+      {
+        "name": "Товары народного потребления (непищевые)",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=42",
+        "count": 1909
+      },
+      {
+        "name": "Медицина, фармацевтика, аптеки",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=48",
+        "count": 1696
+      },
+      {
+        "name": "Телекоммуникации, связь",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=9",
+        "count": 1426
+      },
+      {
+        "name": "Промышленное оборудование, техника, станки и комплектующие",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=388",
+        "count": 1269
+      },
+      {
+        "name": "Образовательные учреждения",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=39",
+        "count": 1158
+      },
+      {
+        "name": "Перевозки, логистика, склад, ВЭД",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=5",
+        "count": 1156
+      },
+      {
+        "name": "Продукты питания",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=27",
+        "count": 1061
+      },
+      {
+        "name": "Автомобильный бизнес",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=15",
+        "count": 1009
+      },
+      {
+        "name": "Тяжелое машиностроение",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=33",
+        "count": 804
+      },
+      {
+        "name": "Металлургия, металлообработка",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=24",
+        "count": 798
+      },
+      {
+        "name": "Нефть и газ",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=47",
+        "count": 641
+      },
+      {
+        "name": "Услуги для населения",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=49",
+        "count": 615
+      },
+      {
+        "name": "Добывающая отрасль",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=45",
+        "count": 565
+      },
+      {
+        "name": "Химическое производство, удобрения",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=34",
+        "count": 418
+      },
+      {
+        "name": "Энергетика",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=46",
+        "count": 402
+      },
+      {
+        "name": "Гостиницы, рестораны, общепит, кейтеринг",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=50",
+        "count": 333
+      },
+      {
+        "name": "Сельское хозяйство",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=29",
+        "count": 293
+      },
+      {
+        "name": "Государственные организации",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=36",
+        "count": 268
+      },
+      {
+        "name": "Лесная промышленность, деревообработка",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=19",
+        "count": 147
+      },
+      {
+        "name": "ЖКХ",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=51",
+        "count": 144
+      },
+      {
+        "name": "Управление многопрофильными активами",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=389",
+        "count": 106
+      },
+      {
+        "name": "Общественная деятельность, партии, благотворительность, НКО",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=37",
+        "count": 47
+      },
+      {
+        "name": "Искусство, культура",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&industry=52",
+        "count": 45
+      }
+    ]
+  },
+  "experience": {
+    "name": "Опыт работы",
+    "id": "experience",
+    "items": [
+      {
+        "name": "От 1 года до 3 лет",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&experience=between1And3",
+        "count": 30515
+      },
+      {
+        "name": "От 3 до 6 лет",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&experience=between3And6",
+        "count": 21874
+      },
+      {
+        "name": "Нет опыта",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&experience=noExperience",
+        "count": 10667
+      },
+      {
+        "name": "Более 6 лет",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&experience=moreThan6",
+        "count": 2442
+      }
+    ]
+  },
+  "employment": {
+    "name": "Тип занятости",
+    "id": "employment",
+    "items": [
+      {
+        "name": "Полная занятость",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&employment=full",
+        "count": 59139
+      },
+      {
+        "name": "Частичная занятость",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&employment=part",
+        "count": 5122
+      },
+      {
+        "name": "Стажировка",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&employment=probation",
+        "count": 905
+      },
+      {
+        "name": "Проектная работа",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&employment=project",
+        "count": 331
+      },
+      {
+        "name": "Волонтерство",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&employment=volunteer",
+        "count": 1
+      }
+    ]
+  },
+  "schedule": {
+    "name": "График работы",
+    "id": "schedule",
+    "items": [
+      {
+        "name": "Полный день",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&schedule=fullDay",
+        "count": 40616
+      },
+      {
+        "name": "Удаленная работа",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&schedule=remote",
+        "count": 18231
+      },
+      {
+        "name": "Гибкий график",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&schedule=flexible",
+        "count": 4666
+      },
+      {
+        "name": "Сменный график",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&schedule=shift",
+        "count": 1839
+      },
+      {
+        "name": "Вахтовый метод",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&schedule=flyInFlyOut",
+        "count": 146
+      }
+    ]
+  },
+  "label": {
+    "name": "Исключение",
+    "id": "label",
+    "items": [
+      {
+        "name": "Без вакансий агентств",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&label=not_from_agency",
+        "count": 59291
+      },
+      {
+        "name": "Только с адресом",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&label=with_address",
+        "count": 29554
+      },
+      {
+        "name": "Только доступные для людей с инвалидностью",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&label=accept_handicapped",
+        "count": 7224
+      },
+      {
+        "name": "Только доступные для соискателей от 14 лет",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&label=accept_kids",
+        "count": 29
+      }
+    ]
+  },
+  "professional_role": {
+    "name": "Профессиональная роль",
+    "id": "professional_role",
+    "items": [
+      {
+        "name": "Программист, разработчик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=96",
+        "count": 32235
+      },
+      {
+        "name": "Аналитик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=10",
+        "count": 4641
+      },
+      {
+        "name": "Другое",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=40",
+        "count": 3120
+      },
+      {
+        "name": "Менеджер по продажам, менеджер по работе с клиентами",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=70",
+        "count": 2222
+      },
+      {
+        "name": "Тестировщик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=124",
+        "count": 2145
+      },
+      {
+        "name": "Специалист технической поддержки",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=121",
+        "count": 1708
+      },
+      {
+        "name": "Инженер-конструктор, инженер-проектировщик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=48",
+        "count": 1377
+      },
+      {
+        "name": "Руководитель проектов",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=107",
+        "count": 1343
+      },
+      {
+        "name": "Руководитель группы разработки",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=104",
+        "count": 1260
+      },
+      {
+        "name": "Упаковщик, комплектовщик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=131",
+        "count": 1145
+      },
+      {
+        "name": "Менеджер по маркетингу и рекламе",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=68",
+        "count": 1096
+      },
+      {
+        "name": "Менеджер продукта",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=73",
+        "count": 875
+      },
+      {
+        "name": "Водитель",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=21",
+        "count": 828
+      },
+      {
+        "name": "Системный администратор",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=113",
+        "count": 765
+      },
+      {
+        "name": "Дизайнер, художник",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=34",
+        "count": 758
+      },
+      {
+        "name": "Оператор call-центра, специалист контактного центра",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=83",
+        "count": 592
+      },
+      {
+        "name": "Специалист по подбору персонала",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=118",
+        "count": 568
+      },
+      {
+        "name": "Специалист по информационной безопасности",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=116",
+        "count": 564
+      },
+      {
+        "name": "Бухгалтер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=18",
+        "count": 456
+      },
+      {
+        "name": "Системный инженер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=114",
+        "count": 443
+      },
+      {
+        "name": "Фармацевт-провизор",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=133",
+        "count": 376
+      },
+      {
+        "name": "Менеджер по персоналу",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=69",
+        "count": 346
+      },
+      {
+        "name": "Инженер-технолог",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=49",
+        "count": 324
+      },
+      {
+        "name": "Технический писатель",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=126",
+        "count": 254
+      },
+      {
+        "name": "Директор по маркетингу и PR (CMO)",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=37",
+        "count": 216
+      },
+      {
+        "name": "Переводчик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=93",
+        "count": 203
+      },
+      {
+        "name": "Гейм-дизайнер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=25",
+        "count": 194
+      },
+      {
+        "name": "Архитектор",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=14",
+        "count": 192
+      },
+      {
+        "name": "SMM-менеджер, контент-менеджер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=3",
+        "count": 188
+      },
+      {
+        "name": "Курьер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=58",
+        "count": 184
+      },
+      {
+        "name": "Учитель, преподаватель, педагог",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=132",
+        "count": 176
+      },
+      {
+        "name": "Аудитор",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=16",
+        "count": 169
+      },
+      {
+        "name": "Менеджер по закупкам",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=66",
+        "count": 158
+      },
+      {
+        "name": "Менеджер по работе с партнерами",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=71",
+        "count": 156
+      },
+      {
+        "name": "Финансовый менеджер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=137",
+        "count": 155
+      },
+      {
+        "name": "Агент по недвижимости",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=6",
+        "count": 153
+      },
+      {
+        "name": "Руководитель отдела продаж",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=106",
+        "count": 142
+      },
+      {
+        "name": "Сервисный инженер, механик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=111",
+        "count": 139
+      },
+      {
+        "name": "Научный специалист, исследователь, лаборант",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=79",
+        "count": 133
+      },
+      {
+        "name": "Экономист",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=142",
+        "count": 129
+      },
+      {
+        "name": "Финансовый аналитик, инвестиционный аналитик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=134",
+        "count": 127
+      },
+      {
+        "name": "Режиссер, сценарист",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=103",
+        "count": 119
+      },
+      {
+        "name": "Инженер ПТО, инженер-сметчик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=47",
+        "count": 114
+      },
+      {
+        "name": "Бизнес-тренер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=17",
+        "count": 108
+      },
+      {
+        "name": "Главный инженер проекта",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=30",
+        "count": 108
+      },
+      {
+        "name": "Копирайтер, редактор, корректор",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=55",
+        "count": 107
+      },
+      {
+        "name": "Инженер по качеству",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=44",
+        "count": 105
+      },
+      {
+        "name": "Секретарь, помощник руководителя, ассистент",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=110",
+        "count": 105
+      },
+      {
+        "name": "Продавец-консультант, продавец-кассир",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=97",
+        "count": 99
+      },
+      {
+        "name": "Разнорабочий",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=102",
+        "count": 99
+      },
+      {
+        "name": "Юрисконсульт",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=145",
+        "count": 99
+      },
+      {
+        "name": "Координатор отдела продаж",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=54",
+        "count": 97
+      },
+      {
+        "name": "Оператор станков с ЧПУ",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=86",
+        "count": 81
+      },
+      {
+        "name": "Руководитель строительного проекта",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=108",
+        "count": 81
+      },
+      {
+        "name": "Юрист",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=146",
+        "count": 76
+      },
+      {
+        "name": "Администратор",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=8",
+        "count": 75
+      },
+      {
+        "name": "PR-менеджер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=2",
+        "count": 71
+      },
+      {
+        "name": "Сетевой инженер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=112",
+        "count": 71
+      },
+      {
+        "name": "Инженер по эксплуатации",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=46",
+        "count": 70
+      },
+      {
+        "name": "Директор по информационным технологиям (CIO)",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=36",
+        "count": 62
+      },
+      {
+        "name": "Начальник производства",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=80",
+        "count": 61
+      },
+      {
+        "name": "Менеджер по логистике, менеджер по ВЭД",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=67",
+        "count": 56
+      },
+      {
+        "name": "Инженер по охране труда и технике безопасности",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=45",
+        "count": 54
+      },
+      {
+        "name": "Технический директор (CTO)",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=125",
+        "count": 53
+      },
+      {
+        "name": "Слесарь",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=115",
+        "count": 52
+      },
+      {
+        "name": "Оператор ПК, оператор базы данных",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=84",
+        "count": 49
+      },
+      {
+        "name": "Электромонтажник",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=143",
+        "count": 45
+      },
+      {
+        "name": "Офис-менеджер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=88",
+        "count": 44
+      },
+      {
+        "name": "Делопроизводитель, архивариус",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=33",
+        "count": 43
+      },
+      {
+        "name": "Финансовый контролер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=136",
+        "count": 41
+      },
+      {
+        "name": "Прораб, мастер СМР",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=100",
+        "count": 40
+      },
+      {
+        "name": "Руководитель отдела клиентского обслуживания",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=105",
+        "count": 40
+      },
+      {
+        "name": "Оператор производственной линии",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=85",
+        "count": 39
+      },
+      {
+        "name": "Специалист по кадрам",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=117",
+        "count": 38
+      },
+      {
+        "name": "Директор по персоналу (HRD)",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=38",
+        "count": 37
+      },
+      {
+        "name": "Медицинский представитель",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=65",
+        "count": 36
+      },
+      {
+        "name": "Кладовщик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=52",
+        "count": 33
+      },
+      {
+        "name": "Грузчик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=31",
+        "count": 31
+      },
+      {
+        "name": "Заведующий аптекой",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=42",
+        "count": 31
+      },
+      {
+        "name": "Токарь, фрезеровщик, шлифовщик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=128",
+        "count": 31
+      },
+      {
+        "name": "Менеджер/консультант по стратегии",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=75",
+        "count": 30
+      },
+      {
+        "name": "Операционный директор (COO)",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=87",
+        "count": 30
+      },
+      {
+        "name": "Арт-директор, креативный директор",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=12",
+        "count": 29
+      },
+      {
+        "name": "Коммерческий директор (CCO)",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=53",
+        "count": 28
+      },
+      {
+        "name": "Event-менеджер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=1",
+        "count": 27
+      },
+      {
+        "name": "Энергетик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=144",
+        "count": 24
+      },
+      {
+        "name": "Начальник склада",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=81",
+        "count": 23
+      },
+      {
+        "name": "Повар, пекарь, кондитер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=94",
+        "count": 22
+      },
+      {
+        "name": "Продюсер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=98",
+        "count": 22
+      },
+      {
+        "name": "Врач",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=24",
+        "count": 21
+      },
+      {
+        "name": "Специалист по тендерам",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=119",
+        "count": 21
+      },
+      {
+        "name": "Генеральный директор, исполнительный директор (CEO)",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=26",
+        "count": 20
+      },
+      {
+        "name": "Супервайзер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=123",
+        "count": 20
+      },
+      {
+        "name": "Менеджер по туризму",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=72",
+        "count": 19
+      },
+      {
+        "name": "Швея, портной, закройщик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=141",
+        "count": 19
+      },
+      {
+        "name": "Охранник",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=90",
+        "count": 18
+      },
+      {
+        "name": "Специалист службы безопасности",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=120",
+        "count": 18
+      },
+      {
+        "name": "Менеджер/руководитель АХО",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=76",
+        "count": 15
+      },
+      {
+        "name": "Начальник смены, мастер участка",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=82",
+        "count": 15
+      },
+      {
+        "name": "Финансовый директор (CFO)",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=135",
+        "count": 14
+      },
+      {
+        "name": "Машинист",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=63",
+        "count": 13
+      },
+      {
+        "name": "Сварщик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=109",
+        "count": 13
+      },
+      {
+        "name": "Официант, бармен, бариста",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=89",
+        "count": 12
+      },
+      {
+        "name": "Воспитатель, няня",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=23",
+        "count": 11
+      },
+      {
+        "name": "Менеджер ресторана",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=74",
+        "count": 11
+      },
+      {
+        "name": "Монтажник",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=78",
+        "count": 11
+      },
+      {
+        "name": "Диспетчер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=39",
+        "count": 10
+      },
+      {
+        "name": "Геодезист",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=27",
+        "count": 9
+      },
+      {
+        "name": "Казначей",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=50",
+        "count": 9
+      },
+      {
+        "name": "Геолог",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=28",
+        "count": 8
+      },
+      {
+        "name": "Директор магазина, директор сети магазинов",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=35",
+        "count": 8
+      },
+      {
+        "name": "Мастер-приемщик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=62",
+        "count": 8
+      },
+      {
+        "name": "Уборщица, уборщик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=130",
+        "count": 8
+      },
+      {
+        "name": "Автомойщик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=4",
+        "count": 7
+      },
+      {
+        "name": "Агроном",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=7",
+        "count": 7
+      },
+      {
+        "name": "Торговый представитель",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=129",
+        "count": 7
+      },
+      {
+        "name": "Автослесарь, автомеханик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=5",
+        "count": 6
+      },
+      {
+        "name": "Администратор магазина, администратор торгового зала",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=9",
+        "count": 6
+      },
+      {
+        "name": "Кассир-операционист",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=51",
+        "count": 5
+      },
+      {
+        "name": "Кредитный специалист",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=57",
+        "count": 5
+      },
+      {
+        "name": "Видеооператор, видеомонтажер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=20",
+        "count": 4
+      },
+      {
+        "name": "Маляр, штукатур",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=59",
+        "count": 4
+      },
+      {
+        "name": "Главный врач, заведующий отделением",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=29",
+        "count": 3
+      },
+      {
+        "name": "Товаровед",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=127",
+        "count": 3
+      },
+      {
+        "name": "Артист, актер, аниматор",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=13",
+        "count": 2
+      },
+      {
+        "name": "Мерчендайзер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=77",
+        "count": 2
+      },
+      {
+        "name": "Оценщик",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=91",
+        "count": 2
+      },
+      {
+        "name": "Промоутер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=99",
+        "count": 2
+      },
+      {
+        "name": "Фитнес-тренер, инструктор тренажерного зала",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=138",
+        "count": 2
+      },
+      {
+        "name": "Ветеринарный врач",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=19",
+        "count": 1
+      },
+      {
+        "name": "Дворник",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=32",
+        "count": 1
+      },
+      {
+        "name": "Журналист, корреспондент",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=41",
+        "count": 1
+      },
+      {
+        "name": "Зоотехник",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=43",
+        "count": 1
+      },
+      {
+        "name": "Косметолог",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=56",
+        "count": 1
+      },
+      {
+        "name": "Массажист",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=60",
+        "count": 1
+      },
+      {
+        "name": "Медицинская сестра",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=64",
+        "count": 1
+      },
+      {
+        "name": "Парикмахер",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=92",
+        "count": 1
+      },
+      {
+        "name": "Психолог",
+        "url": "https://api.hh.ru/vacancies?area=113&clusters=true&per_page=0&text=%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82&professional_role=101",
+        "count": 1
+      }
+    ]
+  },
+  "found": 65498
+}

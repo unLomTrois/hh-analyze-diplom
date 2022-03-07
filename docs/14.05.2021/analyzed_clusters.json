@@ -1,0 +1,290 @@
+{
+  "salary_info": {
+    "specified": 23319,
+    "mean_salary": 65844.70868436956,
+    "mean_salary_to_specified": 158864.23088468632,
+    "specified_ratio": 0.41447157939639545,
+    "borders": [
+      {
+        "from": 20000,
+        "count": 8004,
+        "interval_count": 8004,
+        "ratio": 0.14,
+        "ratio_to_specified": 0.34,
+        "ratio_of_interval_count_to_specified": 0.34
+      },
+      {
+        "from": 80000,
+        "count": 15315,
+        "interval_count": 8167,
+        "ratio": 0.27,
+        "ratio_to_specified": 0.66,
+        "ratio_of_interval_count_to_specified": 0.35
+      },
+      {
+        "from": 155000,
+        "count": 7148,
+        "interval_count": 3940,
+        "ratio": 0.13,
+        "ratio_to_specified": 0.31,
+        "ratio_of_interval_count_to_specified": 0.17
+      },
+      {
+        "from": 230000,
+        "count": 3208,
+        "interval_count": 2205,
+        "ratio": 0.06,
+        "ratio_to_specified": 0.14,
+        "ratio_of_interval_count_to_specified": 0.09
+      },
+      {
+        "from": 305000,
+        "count": 1003,
+        "interval_count": 562,
+        "ratio": 0.02,
+        "ratio_to_specified": 0.04,
+        "ratio_of_interval_count_to_specified": 0.02
+      },
+      {
+        "from": 380000,
+        "count": 441,
+        "interval_count": 441,
+        "ratio": 0.01,
+        "ratio_to_specified": 0.02,
+        "ratio_of_interval_count_to_specified": 0.02
+      }
+    ]
+  },
+  "experience_info": [
+    {
+      "from": 0,
+      "to": 1,
+      "count": 6978,
+      "ratio": 0.12
+    },
+    {
+      "from": 1,
+      "to": 3,
+      "count": 26856,
+      "ratio": 0.48
+    },
+    {
+      "from": 3,
+      "to": 6,
+      "count": 20252,
+      "ratio": 0.36
+    },
+    {
+      "from": 6,
+      "to": null,
+      "count": 2176,
+      "ratio": 0.04
+    }
+  ],
+  "employment_info": [
+    {
+      "name": "Полная занятость",
+      "count": 53204,
+      "ratio": 0.95
+    },
+    {
+      "name": "Частичная занятость",
+      "count": 2065,
+      "ratio": 0.04
+    },
+    {
+      "name": "Стажировка",
+      "count": 641,
+      "ratio": 0.01
+    },
+    {
+      "name": "Проектная работа",
+      "count": 349,
+      "ratio": 0.01
+    },
+    {
+      "name": "Волонтерство",
+      "count": 3,
+      "ratio": 0
+    }
+  ],
+  "schedule_info": [
+    {
+      "name": "Полный день",
+      "count": 38747,
+      "ratio": 0.69
+    },
+    {
+      "name": "Удаленная работа",
+      "count": 12707,
+      "ratio": 0.23
+    },
+    {
+      "name": "Гибкий график",
+      "count": 4064,
+      "ratio": 0.07
+    },
+    {
+      "name": "Сменный график",
+      "count": 610,
+      "ratio": 0.01
+    },
+    {
+      "name": "Вахтовый метод",
+      "count": 134,
+      "ratio": 0
+    }
+  ],
+  "industry_info": [
+    {
+      "name": "Информационные технологии, системная интеграция, интернет",
+      "count": 27348,
+      "ratio": 0.49
+    },
+    {
+      "name": "Финансовый сектор",
+      "count": 4590,
+      "ratio": 0.08
+    },
+    {
+      "name": "Розничная торговля",
+      "count": 3533,
+      "ratio": 0.06
+    },
+    {
+      "name": "Услуги для бизнеса",
+      "count": 3400,
+      "ratio": 0.06
+    },
+    {
+      "name": "СМИ, маркетинг, реклама, BTL, PR, дизайн, продюсирование",
+      "count": 2694,
+      "ratio": 0.05
+    },
+    {
+      "name": "Электроника, приборостроение, бытовая техника, компьютеры и оргтехника",
+      "count": 2326,
+      "ratio": 0.04
+    },
+    {
+      "name": "Товары народного потребления (непищевые)",
+      "count": 2019,
+      "ratio": 0.04
+    },
+    {
+      "name": "Строительство, недвижимость, эксплуатация, проектирование",
+      "count": 1725,
+      "ratio": 0.03
+    },
+    {
+      "name": "Промышленное оборудование, техника, станки и комплектующие",
+      "count": 1270,
+      "ratio": 0.02
+    },
+    {
+      "name": "Медицина, фармацевтика, аптеки",
+      "count": 1199,
+      "ratio": 0.02
+    },
+    {
+      "name": "Образовательные учреждения",
+      "count": 1174,
+      "ratio": 0.02
+    },
+    {
+      "name": "Телекоммуникации, связь",
+      "count": 1173,
+      "ratio": 0.02
+    },
+    {
+      "name": "Продукты питания",
+      "count": 1155,
+      "ratio": 0.02
+    },
+    {
+      "name": "Перевозки, логистика, склад, ВЭД",
+      "count": 1070,
+      "ratio": 0.02
+    },
+    {
+      "name": "Автомобильный бизнес",
+      "count": 1000,
+      "ratio": 0.02
+    },
+    {
+      "name": "Тяжелое машиностроение",
+      "count": 679,
+      "ratio": 0.01
+    },
+    {
+      "name": "Металлургия, металлообработка",
+      "count": 652,
+      "ratio": 0.01
+    },
+    {
+      "name": "Услуги для населения",
+      "count": 596,
+      "ratio": 0.01
+    },
+    {
+      "name": "Нефть и газ",
+      "count": 536,
+      "ratio": 0.01
+    },
+    {
+      "name": "Добывающая отрасль",
+      "count": 433,
+      "ratio": 0.01
+    },
+    {
+      "name": "Химическое производство, удобрения",
+      "count": 412,
+      "ratio": 0.01
+    },
+    {
+      "name": "Гостиницы, рестораны, общепит, кейтеринг",
+      "count": 351,
+      "ratio": 0.01
+    },
+    {
+      "name": "Энергетика",
+      "count": 340,
+      "ratio": 0.01
+    },
+    {
+      "name": "Сельское хозяйство",
+      "count": 316,
+      "ratio": 0.01
+    },
+    {
+      "name": "Государственные организации",
+      "count": 216,
+      "ratio": 0
+    },
+    {
+      "name": "Лесная промышленность, деревообработка",
+      "count": 130,
+      "ratio": 0
+    },
+    {
+      "name": "Управление многопрофильными активами",
+      "count": 102,
+      "ratio": 0
+    },
+    {
+      "name": "ЖКХ",
+      "count": 93,
+      "ratio": 0
+    },
+    {
+      "name": "Общественная деятельность, партии, благотворительность, НКО",
+      "count": 61,
+      "ratio": 0
+    },
+    {
+      "name": "Искусство, культура",
+      "count": 42,
+      "ratio": 0
+    }
+  ]
+}

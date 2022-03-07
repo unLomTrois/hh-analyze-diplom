@@ -1,0 +1,11 @@
+# node modules
+node_modules
+
+# vscode folder
+.vscode
+
+# build
+build
+
+cache
+data
