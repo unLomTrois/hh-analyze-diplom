@@ -31,5 +31,8 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "forceConsistentCasingInFileNames": true,
+    // typerm
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
   }
 }
