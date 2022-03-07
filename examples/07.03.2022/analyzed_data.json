@@ -1,0 +1,976 @@
+{
+  "vacancy_count": 61624,
+  "analyzed_clusters": {
+    "salary_info": {
+      "specified": 27713,
+      "mean_salary": 78899.94158120213,
+      "mean_salary_to_specified": 175445.81965142713,
+      "specified_ratio": 0.4497111514994158,
+      "borders": [
+        {
+          "from": 20000,
+          "count": 11046,
+          "interval_count": 11046,
+          "ratio": 0.18,
+          "ratio_to_specified": 0.4,
+          "ratio_of_interval_count_to_specified": 0.4
+        },
+        {
+          "from": 95000,
+          "count": 16667,
+          "interval_count": 8861,
+          "ratio": 0.27,
+          "ratio_to_specified": 0.6,
+          "ratio_of_interval_count_to_specified": 0.32
+        },
+        {
+          "from": 180000,
+          "count": 7806,
+          "interval_count": 4576,
+          "ratio": 0.13,
+          "ratio_to_specified": 0.28,
+          "ratio_of_interval_count_to_specified": 0.17
+        },
+        {
+          "from": 270000,
+          "count": 3230,
+          "interval_count": 1928,
+          "ratio": 0.05,
+          "ratio_to_specified": 0.12,
+          "ratio_of_interval_count_to_specified": 0.07
+        },
+        {
+          "from": 360000,
+          "count": 1302,
+          "interval_count": 601,
+          "ratio": 0.02,
+          "ratio_to_specified": 0.05,
+          "ratio_of_interval_count_to_specified": 0.02
+        },
+        {
+          "from": 445000,
+          "count": 701,
+          "interval_count": 701,
+          "ratio": 0.01,
+          "ratio_to_specified": 0.03,
+          "ratio_of_interval_count_to_specified": 0.03
+        }
+      ]
+    },
+    "experience_info": [
+      {
+        "from": 0,
+        "to": 1,
+        "count": 9986,
+        "ratio": 0.16
+      },
+      {
+        "from": 1,
+        "to": 3,
+        "count": 28743,
+        "ratio": 0.47
+      },
+      {
+        "from": 3,
+        "to": 6,
+        "count": 20669,
+        "ratio": 0.34
+      },
+      {
+        "from": 6,
+        "to": null,
+        "count": 2226,
+        "ratio": 0.04
+      }
+    ],
+    "employment_info": [
+      {
+        "name": "Полная занятость",
+        "count": 55250,
+        "ratio": 0.9
+      },
+      {
+        "name": "Частичная занятость",
+        "count": 5297,
+        "ratio": 0.09
+      },
+      {
+        "name": "Стажировка",
+        "count": 767,
+        "ratio": 0.01
+      },
+      {
+        "name": "Проектная работа",
+        "count": 310,
+        "ratio": 0.01
+      }
+    ],
+    "schedule_info": [
+      {
+        "name": "Полный день",
+        "count": 38279,
+        "ratio": 0.62
+      },
+      {
+        "name": "Удаленная работа",
+        "count": 17090,
+        "ratio": 0.28
+      },
+      {
+        "name": "Гибкий график",
+        "count": 4407,
+        "ratio": 0.07
+      },
+      {
+        "name": "Сменный график",
+        "count": 1744,
+        "ratio": 0.03
+      },
+      {
+        "name": "Вахтовый метод",
+        "count": 104,
+        "ratio": 0
+      }
+    ],
+    "industry_info": [
+      {
+        "name": "Информационные технологии, системная интеграция, интернет",
+        "count": 27416,
+        "ratio": 0.44
+      },
+      {
+        "name": "Финансовый сектор",
+        "count": 4850,
+        "ratio": 0.08
+      },
+      {
+        "name": "Услуги для бизнеса",
+        "count": 3837,
+        "ratio": 0.06
+      },
+      {
+        "name": "Розничная торговля",
+        "count": 3074,
+        "ratio": 0.05
+      },
+      {
+        "name": "Электроника, приборостроение, бытовая техника, компьютеры и оргтехника",
+        "count": 2558,
+        "ratio": 0.04
+      },
+      {
+        "name": "СМИ, маркетинг, реклама, BTL, PR, дизайн, продюсирование",
+        "count": 2169,
+        "ratio": 0.04
+      },
+      {
+        "name": "Строительство, недвижимость, эксплуатация, проектирование",
+        "count": 2007,
+        "ratio": 0.03
+      },
+      {
+        "name": "Товары народного потребления (непищевые)",
+        "count": 1685,
+        "ratio": 0.03
+      },
+      {
+        "name": "Медицина, фармацевтика, аптеки",
+        "count": 1553,
+        "ratio": 0.03
+      },
+      {
+        "name": "Телекоммуникации, связь",
+        "count": 1321,
+        "ratio": 0.02
+      },
+      {
+        "name": "Промышленное оборудование, техника, станки и комплектующие",
+        "count": 1169,
+        "ratio": 0.02
+      },
+      {
+        "name": "Образовательные учреждения",
+        "count": 1110,
+        "ratio": 0.02
+      },
+      {
+        "name": "Перевозки, логистика, склад, ВЭД",
+        "count": 1082,
+        "ratio": 0.02
+      },
+      {
+        "name": "Продукты питания",
+        "count": 1008,
+        "ratio": 0.02
+      },
+      {
+        "name": "Автомобильный бизнес",
+        "count": 940,
+        "ratio": 0.02
+      },
+      {
+        "name": "Тяжелое машиностроение",
+        "count": 762,
+        "ratio": 0.01
+      },
+      {
+        "name": "Металлургия, металлообработка",
+        "count": 724,
+        "ratio": 0.01
+      },
+      {
+        "name": "Нефть и газ",
+        "count": 639,
+        "ratio": 0.01
+      },
+      {
+        "name": "Услуги для населения",
+        "count": 600,
+        "ratio": 0.01
+      },
+      {
+        "name": "Добывающая отрасль",
+        "count": 514,
+        "ratio": 0.01
+      },
+      {
+        "name": "Химическое производство, удобрения",
+        "count": 398,
+        "ratio": 0.01
+      },
+      {
+        "name": "Энергетика",
+        "count": 380,
+        "ratio": 0.01
+      },
+      {
+        "name": "Гостиницы, рестораны, общепит, кейтеринг",
+        "count": 293,
+        "ratio": 0
+      },
+      {
+        "name": "Сельское хозяйство",
+        "count": 273,
+        "ratio": 0
+      },
+      {
+        "name": "Государственные организации",
+        "count": 263,
+        "ratio": 0
+      },
+      {
+        "name": "Лесная промышленность, деревообработка",
+        "count": 148,
+        "ratio": 0
+      },
+      {
+        "name": "ЖКХ",
+        "count": 133,
+        "ratio": 0
+      },
+      {
+        "name": "Управление многопрофильными активами",
+        "count": 114,
+        "ratio": 0
+      },
+      {
+        "name": "Искусство, культура",
+        "count": 46,
+        "ratio": 0
+      },
+      {
+        "name": "Общественная деятельность, партии, благотворительность, НКО",
+        "count": 43,
+        "ratio": 0
+      }
+    ]
+  },
+  "analyzed_vacancies": {
+    "has_test": {
+      "value": 248,
+      "ratio": 0.004024406075554978
+    },
+    "test_required": {
+      "value": 151,
+      "ratio": 0.0024503440218096844,
+      "has_test_ratio": 0.6088709677419355
+    },
+    "accept_incomplete_resume": {
+      "value": 905,
+      "ratio": 0.014685836687005063
+    },
+    "accept_temporary": {
+      "value": 951,
+      "ratio": 0.015432299104245099
+    },
+    "response_letter_required": {
+      "value": 168,
+      "ratio": 0.002726210567311437
+    },
+    "key_skills": {
+      "key_skills_count": 64793,
+      "vacancies_with_keyskills": {
+        "value": 12632,
+        "ratio": 0.2049850707516552
+      },
+      "top_ten": [
+        {
+          "name": "SQL",
+          "count": 1895,
+          "ratio_to_vacancies": 0.15,
+          "ratio_to_key_skills": 0.029
+        },
+        {
+          "name": "Git",
+          "count": 1741,
+          "ratio_to_vacancies": 0.138,
+          "ratio_to_key_skills": 0.027
+        },
+        {
+          "name": "Английский язык",
+          "count": 1402,
+          "ratio_to_vacancies": 0.111,
+          "ratio_to_key_skills": 0.022
+        },
+        {
+          "name": "JavaScript",
+          "count": 1213,
+          "ratio_to_vacancies": 0.096,
+          "ratio_to_key_skills": 0.019
+        },
+        {
+          "name": "PostgreSQL",
+          "count": 986,
+          "ratio_to_vacancies": 0.078,
+          "ratio_to_key_skills": 0.015
+        },
+        {
+          "name": "Python",
+          "count": 979,
+          "ratio_to_vacancies": 0.078,
+          "ratio_to_key_skills": 0.015
+        },
+        {
+          "name": "Linux",
+          "count": 959,
+          "ratio_to_vacancies": 0.076,
+          "ratio_to_key_skills": 0.015
+        },
+        {
+          "name": "Java",
+          "count": 868,
+          "ratio_to_vacancies": 0.069,
+          "ratio_to_key_skills": 0.013
+        },
+        {
+          "name": "ООП",
+          "count": 717,
+          "ratio_to_vacancies": 0.057,
+          "ratio_to_key_skills": 0.011
+        },
+        {
+          "name": "Управление проектами",
+          "count": 680,
+          "ratio_to_vacancies": 0.054,
+          "ratio_to_key_skills": 0.01
+        }
+      ],
+      "full_list": [
+        {
+          "name": "SQL",
+          "count": 1895,
+          "ratio_to_vacancies": 0.15,
+          "ratio_to_key_skills": 0.029
+        },
+        {
+          "name": "Git",
+          "count": 1741,
+          "ratio_to_vacancies": 0.138,
+          "ratio_to_key_skills": 0.027
+        },
+        {
+          "name": "Английский язык",
+          "count": 1402,
+          "ratio_to_vacancies": 0.111,
+          "ratio_to_key_skills": 0.022
+        },
+        {
+          "name": "JavaScript",
+          "count": 1213,
+          "ratio_to_vacancies": 0.096,
+          "ratio_to_key_skills": 0.019
+        },
+        {
+          "name": "PostgreSQL",
+          "count": 986,
+          "ratio_to_vacancies": 0.078,
+          "ratio_to_key_skills": 0.015
+        },
+        {
+          "name": "Python",
+          "count": 979,
+          "ratio_to_vacancies": 0.078,
+          "ratio_to_key_skills": 0.015
+        },
+        {
+          "name": "Linux",
+          "count": 959,
+          "ratio_to_vacancies": 0.076,
+          "ratio_to_key_skills": 0.015
+        },
+        {
+          "name": "Java",
+          "count": 868,
+          "ratio_to_vacancies": 0.069,
+          "ratio_to_key_skills": 0.013
+        },
+        {
+          "name": "ООП",
+          "count": 717,
+          "ratio_to_vacancies": 0.057,
+          "ratio_to_key_skills": 0.011
+        },
+        {
+          "name": "Управление проектами",
+          "count": 680,
+          "ratio_to_vacancies": 0.054,
+          "ratio_to_key_skills": 0.01
+        },
+        {
+          "name": "C#",
+          "count": 666,
+          "ratio_to_vacancies": 0.053,
+          "ratio_to_key_skills": 0.01
+        },
+        {
+          "name": "MySQL",
+          "count": 591,
+          "ratio_to_vacancies": 0.047,
+          "ratio_to_key_skills": 0.009
+        },
+        {
+          "name": "PHP",
+          "count": 568,
+          "ratio_to_vacancies": 0.045,
+          "ratio_to_key_skills": 0.009
+        },
+        {
+          "name": "HTML",
+          "count": 527,
+          "ratio_to_vacancies": 0.042,
+          "ratio_to_key_skills": 0.008
+        },
+        {
+          "name": "Atlassian Jira",
+          "count": 510,
+          "ratio_to_vacancies": 0.04,
+          "ratio_to_key_skills": 0.008
+        },
+        {
+          "name": "Docker",
+          "count": 499,
+          "ratio_to_vacancies": 0.04,
+          "ratio_to_key_skills": 0.008
+        },
+        {
+          "name": "CSS",
+          "count": 480,
+          "ratio_to_vacancies": 0.038,
+          "ratio_to_key_skills": 0.007
+        },
+        {
+          "name": "1С программирование",
+          "count": 477,
+          "ratio_to_vacancies": 0.038,
+          "ratio_to_key_skills": 0.007
+        },
+        {
+          "name": "Работа в команде",
+          "count": 469,
+          "ratio_to_vacancies": 0.037,
+          "ratio_to_key_skills": 0.007
+        },
+        {
+          "name": "MS SQL",
+          "count": 451,
+          "ratio_to_vacancies": 0.036,
+          "ratio_to_key_skills": 0.007
+        },
+        {
+          "name": "Разработка технических заданий",
+          "count": 437,
+          "ratio_to_vacancies": 0.035,
+          "ratio_to_key_skills": 0.007
+        },
+        {
+          "name": "1С: Предприятие 8",
+          "count": 405,
+          "ratio_to_vacancies": 0.032,
+          "ratio_to_key_skills": 0.006
+        },
+        {
+          "name": "Постановка задач разработчикам",
+          "count": 371,
+          "ratio_to_vacancies": 0.029,
+          "ratio_to_key_skills": 0.006
+        },
+        {
+          "name": "C++",
+          "count": 366,
+          "ratio_to_vacancies": 0.029,
+          "ratio_to_key_skills": 0.006
+        },
+        {
+          "name": "Аналитическое мышление",
+          "count": 352,
+          "ratio_to_vacancies": 0.028,
+          "ratio_to_key_skills": 0.005
+        },
+        {
+          "name": "TypeScript",
+          "count": 350,
+          "ratio_to_vacancies": 0.028,
+          "ratio_to_key_skills": 0.005
+        },
+        {
+          "name": "React",
+          "count": 338,
+          "ratio_to_vacancies": 0.027,
+          "ratio_to_key_skills": 0.005
+        },
+        {
+          "name": "Бизнес-анализ",
+          "count": 326,
+          "ratio_to_vacancies": 0.026,
+          "ratio_to_key_skills": 0.005
+        },
+        {
+          "name": "MS PowerPoint",
+          "count": 318,
+          "ratio_to_vacancies": 0.025,
+          "ratio_to_key_skills": 0.005
+        },
+        {
+          "name": "Ведение переговоров",
+          "count": 305,
+          "ratio_to_vacancies": 0.024,
+          "ratio_to_key_skills": 0.005
+        },
+        {
+          "name": "iOS",
+          "count": 303,
+          "ratio_to_vacancies": 0.024,
+          "ratio_to_key_skills": 0.005
+        },
+        {
+          "name": "REST",
+          "count": 284,
+          "ratio_to_vacancies": 0.022,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "Spring Framework",
+          "count": 283,
+          "ratio_to_vacancies": 0.022,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "BPMN",
+          "count": 283,
+          "ratio_to_vacancies": 0.022,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "HTML5",
+          "count": 275,
+          "ratio_to_vacancies": 0.022,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "Android",
+          "count": 270,
+          "ratio_to_vacancies": 0.021,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "1С: Зарплата и управление персоналом",
+          "count": 267,
+          "ratio_to_vacancies": 0.021,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "Scrum",
+          "count": 266,
+          "ratio_to_vacancies": 0.021,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": ".NET Framework",
+          "count": 256,
+          "ratio_to_vacancies": 0.02,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "Деловая коммуникация",
+          "count": 252,
+          "ratio_to_vacancies": 0.02,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "1С: Бухгалтерия",
+          "count": 249,
+          "ratio_to_vacancies": 0.02,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "Node.js",
+          "count": 243,
+          "ratio_to_vacancies": 0.019,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "Грамотная речь",
+          "count": 241,
+          "ratio_to_vacancies": 0.019,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "UML",
+          "count": 240,
+          "ratio_to_vacancies": 0.019,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "XML",
+          "count": 235,
+          "ratio_to_vacancies": 0.019,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "Kotlin",
+          "count": 233,
+          "ratio_to_vacancies": 0.018,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "C/C++",
+          "count": 227,
+          "ratio_to_vacancies": 0.018,
+          "ratio_to_key_skills": 0.004
+        },
+        {
+          "name": "Системный анализ",
+          "count": 225,
+          "ratio_to_vacancies": 0.018,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Swift",
+          "count": 218,
+          "ratio_to_vacancies": 0.017,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Adobe Photoshop",
+          "count": 217,
+          "ratio_to_vacancies": 0.017,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Golang",
+          "count": 213,
+          "ratio_to_vacancies": 0.017,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "1С: Управление Торговлей",
+          "count": 209,
+          "ratio_to_vacancies": 0.017,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "CSS3",
+          "count": 208,
+          "ratio_to_vacancies": 0.016,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "1С: Документооборот",
+          "count": 207,
+          "ratio_to_vacancies": 0.016,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Проведение презентаций",
+          "count": 205,
+          "ratio_to_vacancies": 0.016,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Деловая переписка",
+          "count": 204,
+          "ratio_to_vacancies": 0.016,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "MS Visio",
+          "count": 198,
+          "ratio_to_vacancies": 0.016,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Atlassian Confluence",
+          "count": 196,
+          "ratio_to_vacancies": 0.016,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "ASP.NET",
+          "count": 194,
+          "ratio_to_vacancies": 0.015,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Kafka",
+          "count": 193,
+          "ratio_to_vacancies": 0.015,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "MongoDB",
+          "count": 191,
+          "ratio_to_vacancies": 0.015,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "MS SQL Server",
+          "count": 184,
+          "ratio_to_vacancies": 0.015,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "1С-Битрикс",
+          "count": 183,
+          "ratio_to_vacancies": 0.014,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Agile Project Management",
+          "count": 183,
+          "ratio_to_vacancies": 0.014,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "ORACLE",
+          "count": 179,
+          "ratio_to_vacancies": 0.014,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Базы данных",
+          "count": 178,
+          "ratio_to_vacancies": 0.014,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Project management",
+          "count": 178,
+          "ratio_to_vacancies": 0.014,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Тестирование",
+          "count": 174,
+          "ratio_to_vacancies": 0.014,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Kubernetes",
+          "count": 172,
+          "ratio_to_vacancies": 0.014,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "ERP-системы на базе 1С",
+          "count": 170,
+          "ratio_to_vacancies": 0.013,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Redis",
+          "count": 164,
+          "ratio_to_vacancies": 0.013,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "Креативность",
+          "count": 162,
+          "ratio_to_vacancies": 0.013,
+          "ratio_to_key_skills": 0.003
+        },
+        {
+          "name": "jQuery",
+          "count": 161,
+          "ratio_to_vacancies": 0.013,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "CRM",
+          "count": 159,
+          "ratio_to_vacancies": 0.013,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "AutoCAD",
+          "count": 157,
+          "ratio_to_vacancies": 0.012,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Организаторские навыки",
+          "count": 157,
+          "ratio_to_vacancies": 0.012,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "B2B Продажи",
+          "count": 157,
+          "ratio_to_vacancies": 0.012,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Unity",
+          "count": 156,
+          "ratio_to_vacancies": 0.012,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Системное мышление",
+          "count": 149,
+          "ratio_to_vacancies": 0.012,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "RabbitMQ",
+          "count": 148,
+          "ratio_to_vacancies": 0.012,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Analytical skills",
+          "count": 145,
+          "ratio_to_vacancies": 0.011,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Bash",
+          "count": 144,
+          "ratio_to_vacancies": 0.011,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Oracle Pl/SQL",
+          "count": 142,
+          "ratio_to_vacancies": 0.011,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Анализ данных",
+          "count": 141,
+          "ratio_to_vacancies": 0.011,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "SOAP",
+          "count": 140,
+          "ratio_to_vacancies": 0.011,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Ориентация на результат",
+          "count": 140,
+          "ratio_to_vacancies": 0.011,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "1C: Бухгалтерия",
+          "count": 139,
+          "ratio_to_vacancies": 0.011,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Redux",
+          "count": 138,
+          "ratio_to_vacancies": 0.011,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "1С: Комплексная автоматизация",
+          "count": 135,
+          "ratio_to_vacancies": 0.011,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Удаленная работа",
+          "count": 134,
+          "ratio_to_vacancies": 0.011,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "API",
+          "count": 133,
+          "ratio_to_vacancies": 0.011,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Деловое общение",
+          "count": 131,
+          "ratio_to_vacancies": 0.01,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Работа с большим объемом информации",
+          "count": 129,
+          "ratio_to_vacancies": 0.01,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Разработка ПО",
+          "count": 127,
+          "ratio_to_vacancies": 0.01,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Laravel",
+          "count": 126,
+          "ratio_to_vacancies": 0.01,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Symfony",
+          "count": 124,
+          "ratio_to_vacancies": 0.01,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Поиск и привлечение клиентов",
+          "count": 124,
+          "ratio_to_vacancies": 0.01,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Android SDK",
+          "count": 123,
+          "ratio_to_vacancies": 0.01,
+          "ratio_to_key_skills": 0.002
+        },
+        {
+          "name": "Django Framework",
+          "count": 121,
+          "ratio_to_vacancies": 0.01,
+          "ratio_to_key_skills": 0.002
+        }
+      ]
+    }
+  }
+}
