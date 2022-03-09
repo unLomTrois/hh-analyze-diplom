@@ -1,7 +1,11 @@
+import { chunk, compact } from "lodash-es";
+import { getConnection } from "typeorm";
+import { Vacancy } from "../entity/Vacancy.js";
 import { API } from "../types/api/module.js";
 import {
   buildQueryURL,
   formatClusters,
+  getFromLog,
   saveToFile,
 } from "../utils";
 import { getURLs } from "./branch.js";
@@ -10,7 +14,6 @@ import {
   getVacancies,
   getVacanciesInfo,
 } from "./requests.js";
-
 
 export const search = async (query: API.Query) => {
   const query_url = buildQueryURL({
@@ -32,17 +35,17 @@ export const search = async (query: API.Query) => {
   let urls = await getURLs(query_url, response.found, clusters);
   saveToFile(urls, "data", "urls.json");
 
-  return [];
-
   console.log(
     "количество запросов для получения сокращённых вакансий:",
     urls.length
   );
 
+  // return [];
+
   const vacancies: API.Vacancy[] = await getVacancies(urls);
 
   console.log(vacancies.length);
-  saveToFile(vacancies, "data", "vacancies.json");
+  saveToFile(compact(vacancies), "data", "vacancies.json");
   saveToFile(
     {
       date: new Date().toLocaleString("ru", { timeZone: "Europe/Moscow" }),
@@ -54,6 +57,32 @@ export const search = async (query: API.Query) => {
   );
 
   return vacancies;
+};
+
+export const checkForUnique = async (vacancies: API.Vacancy[]) => {
+  console.log(vacancies.length);
+  const connection = getConnection();
+  console.log("вставка в бд");
+
+  let i = 0;
+  for (const chunkItem of chunk(compact(vacancies), 100)) {
+    console.log(i);
+    try {
+
+      await connection
+      .createQueryBuilder()
+      .insert()
+      .into(Vacancy)
+      .values(chunkItem)
+      .orIgnore(true)
+      .execute();
+      i++;
+    } catch (e) {
+      console.log(chunkItem)
+      break;
+    }
+  }
+  console.log("вставка закончена, число:", await connection.getRepository(Vacancy).count())
 };
 
 export const getFull = async (vacancies: API.Vacancy[]) => {

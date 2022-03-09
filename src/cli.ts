@@ -1,7 +1,7 @@
 import { Command } from "commander";
 import { getArea, getFromLog } from "./utils";
 import { API } from "./types/api/module";
-import { getFull, search, prepare } from "./core/index.js";
+import { getFull, search, prepare, checkForUnique } from "./core/index.js";
 import { analyze } from "./core/analyze";
 
 const getCLI = () => {
@@ -52,6 +52,16 @@ const getCLI = () => {
           });
       }
     });
+
+    cli
+    .command("unique")
+    .description("получает полное представление вакансий")
+    .action(() => {
+      const vacancies: API.Vacancy[] = getFromLog("data", "vacancies.json");
+
+      checkForUnique(vacancies);
+    });
+
 
   cli
     .command("get-full")
