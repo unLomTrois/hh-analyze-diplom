@@ -29,81 +29,85 @@ export const getURLsFromClusters = async (
 ): Promise<string[]> => {
   // поделить кластера по регионам, где больше 2000 и где меньше
   if (clusters.area === undefined) {
-    const final_items: API.ClusterItem[] = [];
-
-    // skip area branching,
-    const branched_by_employment = await branchByEmployment(
-      clusters.employment.items
-    );
-    let [less_2000_clusters, more_2000_clusters] = partition(
-      branched_by_employment,
-      (cluster_item) => cluster_item.count <= 2000
-    );
-    final_items.push(...less_2000_clusters);
-
-    const branched_by_schedule = await branchBySchedule(more_2000_clusters);
-    [less_2000_clusters, more_2000_clusters] = partition(
-      branched_by_schedule,
-      (cluster_item) => cluster_item.count <= 2000
-    );
-    final_items.push(...less_2000_clusters);
-
-    const branched_by_professional_role = await branchByProfessionalRole(
-      more_2000_clusters
-    );
-    [less_2000_clusters, more_2000_clusters] = partition(
-      branched_by_professional_role,
-      (cluster_item) => cluster_item.count <= 2000
-    );
-    final_items.push(...less_2000_clusters);
-
-    const branched_by_industry = await branchByIndustry(more_2000_clusters);
-    [less_2000_clusters, more_2000_clusters] = partition(
-      branched_by_industry,
-      (cluster_item) => cluster_item.count <= 2000
-    );
-    final_items.push(...less_2000_clusters);
-
-    console.log(more_2000_clusters);
-
-    // console.log(more_2000_clusters, less_2000_clusters);
-
-    const final_count = final_items.reduce((acc, cur) => {
-      return (acc += cur.count);
-    }, 0);
-
-    console.log(clusters.found, final_count, clusters.found - final_count);
-
-    return paginateClusters(final_items);
+    return paginateClusters(await deepBranch(clusters.employment.items));
   }
-  return [];
 
-  // const [small_area_clusters, big_area_clusters] = partition(
-  //   clusters?.area?.items,
-  //   (cluster) => cluster.count <= 2000
-  // );
+  const final_items: API.ClusterItem[] = [];
+  let [less_2000_clusters, more_2000_clusters] = partition(
+    clusters.area.items,
+    (cluster_item) => cluster_item.count <= 2000
+  );
+  final_items.push(...less_2000_clusters);
+  console.log(
+    "Со всей России, где меньше 2000 вакансий",
+    final_items.reduce((acc, cur) => {
+      return (acc += cur.count);
+    }, 0)
+  );
 
-  // const branched_big_cluster = await branchVacanciesFromDeepCluster(
-  //   big_area_clusters
-  // );
+  // const branched = more_2000_clusters.map(async(cluster) => {
+  //   return deepBranch(cluster)
+  // })
+  const branched1 = await deepBranch([more_2000_clusters[0]]);
+  const branched2 = await deepBranch([more_2000_clusters[1]]);
+  const branched3 = await deepBranch([more_2000_clusters[2]]);
+  final_items.push(...branched1);
+  final_items.push(...branched2);
+  final_items.push(...branched3);
 
-  // const paginated_urls_from_big_clusters =
-  //   paginateClusters(branched_big_cluster);
+  const final_count = final_items.reduce((acc, cur) => {
+    return (acc += cur.count);
+  }, 0);
+  console.log(clusters.found, final_count, clusters.found - final_count);
 
-  // const paginated_urls_from_small_clusters =
-  //   paginateClusters(small_area_clusters);
-
-  // return [
-  //   ...paginated_urls_from_big_clusters,
-  //   ...paginated_urls_from_small_clusters,
-  // ];
+  return paginateClusters(final_items);
 };
 
-// < branch by area here
+const deepBranch = async (cluster_items: API.ClusterItem[]) => {
+  console.log("начало ветвления");
+
+  const final_items: API.ClusterItem[] = [];
+
+  const branched_by_employment = await branchByEmployment(cluster_items);
+  let [less_2000_clusters, more_2000_clusters] = partition(
+    branched_by_employment,
+    (cluster_item) => cluster_item.count <= 2000
+  );
+  final_items.push(...less_2000_clusters);
+
+  const branched_by_schedule = await branchBySchedule(more_2000_clusters);
+  [less_2000_clusters, more_2000_clusters] = partition(
+    branched_by_schedule,
+    (cluster_item) => cluster_item.count <= 2000
+  );
+  final_items.push(...less_2000_clusters);
+
+  const branched_by_professional_role = await branchByProfessionalRole(
+    more_2000_clusters
+  );
+  [less_2000_clusters, more_2000_clusters] = partition(
+    branched_by_professional_role,
+    (cluster_item) => cluster_item.count <= 2000
+  );
+  final_items.push(...less_2000_clusters);
+
+  const branched_by_industry = await branchByIndustry(more_2000_clusters);
+  [less_2000_clusters, more_2000_clusters] = partition(
+    branched_by_industry,
+    (cluster_item) => cluster_item.count <= 2000
+  );
+  final_items.push(...less_2000_clusters);
+  console.log(more_2000_clusters);
+  // console.log(more_2000_clusters, less_2000_clusters);
+
+  return final_items;
+};
 
 const branchByEmployment = async (
   cluster_items: API.ClusterItem[]
 ): Promise<API.ClusterItem[]> => {
+  console.log("ветвление по типу занятости");
+
   const [less_2000_clusters, more_2000_clusters] = partition(
     cluster_items,
     (cluster_item) => cluster_item.count <= 2000
@@ -131,6 +135,8 @@ const branchByEmployment = async (
 const branchBySchedule = async (
   cluster_items: API.ClusterItem[]
 ): Promise<API.ClusterItem[]> => {
+  console.log("ветвление графику работы");
+
   const urls = cluster_items.map((item) => item.url);
   const reponses: API.Response[] = await Promise.all(
     urls.map((url) =>
@@ -158,6 +164,8 @@ const branchBySchedule = async (
 const branchByProfessionalRole = async (
   cluster_items: API.ClusterItem[]
 ): Promise<API.ClusterItem[]> => {
+  console.log("ветвление по проф.роли");
+
   const urls = cluster_items.map((item) => item.url);
   const reponses: API.Response[] = await Promise.all(
     urls.map((url) =>
