@@ -2,29 +2,15 @@ import { API } from "../types/api/module.js";
 import {
   buildQueryURL,
   formatClusters,
-  paginateLink,
   saveToFile,
 } from "../utils";
+import { getURLs } from "./branch.js";
 import {
   getFullVacancies,
   getVacancies,
   getVacanciesInfo,
 } from "./requests.js";
-import { getURLsFromClusters } from "./branch";
 
-const getURLs = async (
-  url: string,
-  found: number,
-  clusters: API.FormattedClusters
-) => {
-  if (found <= 2000) {
-    const pages: number = Math.ceil(found / 100);
-
-    return paginateLink(url, pages);
-  }
-  console.log("парсинг сокращённых вакансий");
-  return await getURLsFromClusters(clusters);
-};
 
 export const search = async (query: API.Query) => {
   const query_url = buildQueryURL({
@@ -41,6 +27,7 @@ export const search = async (query: API.Query) => {
     response.found
   );
   saveToFile(clusters, "data", "clusters.json");
+  saveToFile(response.clusters, "data", "raw_clusters.json");
 
   let urls = await getURLs(query_url, response.found, clusters);
   saveToFile(urls, "data", "urls.json");

@@ -1,8 +1,27 @@
 import { partition } from "lodash-es";
 import fetch from "node-fetch";
 import { API } from "../types/api/module";
-import { formatClusters, paginateClusters } from "../utils";
+import {
+  formatClusters,
+  paginateClusters,
+  paginateLink,
+  saveToFile,
+} from "../utils";
 import { hh_headers } from "./requests";
+
+export const getURLs = async (
+  url: string,
+  found: number,
+  clusters: API.FormattedClusters
+) => {
+  if (found <= 2000) {
+    const pages: number = Math.ceil(found / 100);
+
+    return paginateLink(url, pages);
+  }
+  console.log("парсинг сокращённых вакансий");
+  return await getURLsFromClusters(clusters);
+};
 
 export const getURLsFromClusters = async (clusters: API.FormattedClusters) => {
   const [small_area_clusters, big_area_clusters] = partition(
