@@ -1,11 +1,30 @@
 import { API } from "../types/api/module.js";
-import { buildQueryURL, formatClusters, paginateLink, saveToFile } from "../utils";
+import {
+  buildQueryURL,
+  formatClusters,
+  paginateLink,
+  saveToFile,
+} from "../utils";
 import {
   getFullVacancies,
-  getURLsFromClusters,
   getVacancies,
   getVacanciesInfo,
 } from "./requests.js";
+import { getURLsFromClusters } from "./branch";
+
+const getURLs = async (
+  url: string,
+  found: number,
+  clusters: API.FormattedClusters
+) => {
+  if (found <= 2000) {
+    const pages: number = Math.ceil(found / 100);
+
+    return paginateLink(url, pages);
+  }
+  console.log("парсинг сокращённых вакансий");
+  return await getURLsFromClusters(clusters);
+};
 
 export const search = async (query: API.Query) => {
   const query_url = buildQueryURL({
@@ -17,21 +36,16 @@ export const search = async (query: API.Query) => {
   const response: API.Response = await getVacanciesInfo(query_url);
   console.log("всего по данному запросу найдено:", response.found, "вакансий");
 
-  const clusters: API.FormattedClusters = formatClusters(response.clusters, response.found);
+  const clusters: API.FormattedClusters = formatClusters(
+    response.clusters,
+    response.found
+  );
   saveToFile(clusters, "data", "clusters.json");
 
-
-  const getURLs = async (url: string, found: number, clusters: API.FormattedClusters) => {
-    if (found <= 2000) {
-      const pages: number = Math.ceil(found / 100);
-
-      return paginateLink(url, pages)
-    }
-    console.log("парсинг сокращённых вакансий");
-    return await getURLsFromClusters(clusters);
-  }
-
   let urls = await getURLs(query_url, response.found, clusters);
+  saveToFile(urls, "data", "urls.json");
+
+  // return [];
 
   console.log(
     "количество запросов для получения сокращённых вакансий:",
@@ -42,6 +56,15 @@ export const search = async (query: API.Query) => {
 
   console.log(vacancies.length);
   saveToFile(vacancies, "data", "vacancies.json");
+  saveToFile(
+    {
+      date: new Date().toLocaleString("ru", { timeZone: "Europe/Moscow" }),
+      count: vacancies.length,
+      vacancies,
+    },
+    "data",
+    "vacancies2.json"
+  );
 
   return vacancies;
 };
