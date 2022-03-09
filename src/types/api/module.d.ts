@@ -255,7 +255,7 @@ export namespace API {
   export interface FormattedClusters {
     found?: number;
     metro?: MetroCluster;
-    area: Cluster;
+    area?: Cluster;
     salary: Cluster;
     sub_industry: Cluster;
     industry: Cluster;
