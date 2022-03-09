@@ -32,7 +32,7 @@ export const search = async (query: API.Query) => {
   let urls = await getURLs(query_url, response.found, clusters);
   saveToFile(urls, "data", "urls.json");
 
-  // return [];
+  return [];
 
   console.log(
     "количество запросов для получения сокращённых вакансий:",

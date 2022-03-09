@@ -19,30 +19,197 @@ export const getURLs = async (
 
     return paginateLink(url, pages);
   }
-  console.log("парсинг сокращённых вакансий");
+
+  console.log("парсинг кластеров");
   return await getURLsFromClusters(clusters);
 };
 
-export const getURLsFromClusters = async (clusters: API.FormattedClusters) => {
-  const [small_area_clusters, big_area_clusters] = partition(
-    clusters?.area?.items ?? clusters.metro?.items,
-    (cluster) => cluster.count <= 2000
+export const getURLsFromClusters = async (
+  clusters: API.FormattedClusters
+): Promise<string[]> => {
+  // поделить кластера по регионам, где больше 2000 и где меньше
+  if (clusters.area === undefined) {
+    const final_items: API.ClusterItem[] = [];
+
+    // skip area branching,
+    const branched_by_employment = await branchByEmployment(
+      clusters.employment.items
+    );
+    let [less_2000_clusters, more_2000_clusters] = partition(
+      branched_by_employment,
+      (cluster_item) => cluster_item.count <= 2000
+    );
+    final_items.push(...less_2000_clusters);
+
+    const branched_by_schedule = await branchBySchedule(more_2000_clusters);
+    [less_2000_clusters, more_2000_clusters] = partition(
+      branched_by_schedule,
+      (cluster_item) => cluster_item.count <= 2000
+    );
+    final_items.push(...less_2000_clusters);
+
+    const branched_by_professional_role = await branchByProfessionalRole(
+      more_2000_clusters
+    );
+    [less_2000_clusters, more_2000_clusters] = partition(
+      branched_by_professional_role,
+      (cluster_item) => cluster_item.count <= 2000
+    );
+    final_items.push(...less_2000_clusters);
+
+    const branched_by_industry = await branchByIndustry(more_2000_clusters);
+    [less_2000_clusters, more_2000_clusters] = partition(
+      branched_by_industry,
+      (cluster_item) => cluster_item.count <= 2000
+    );
+    final_items.push(...less_2000_clusters);
+
+    console.log(more_2000_clusters);
+
+    // console.log(more_2000_clusters, less_2000_clusters);
+
+    const final_count = final_items.reduce((acc, cur) => {
+      return (acc += cur.count);
+    }, 0);
+
+    console.log(clusters.found, final_count, clusters.found - final_count);
+
+    return paginateClusters(final_items);
+  }
+  return [];
+
+  // const [small_area_clusters, big_area_clusters] = partition(
+  //   clusters?.area?.items,
+  //   (cluster) => cluster.count <= 2000
+  // );
+
+  // const branched_big_cluster = await branchVacanciesFromDeepCluster(
+  //   big_area_clusters
+  // );
+
+  // const paginated_urls_from_big_clusters =
+  //   paginateClusters(branched_big_cluster);
+
+  // const paginated_urls_from_small_clusters =
+  //   paginateClusters(small_area_clusters);
+
+  // return [
+  //   ...paginated_urls_from_big_clusters,
+  //   ...paginated_urls_from_small_clusters,
+  // ];
+};
+
+// < branch by area here
+
+const branchByEmployment = async (
+  cluster_items: API.ClusterItem[]
+): Promise<API.ClusterItem[]> => {
+  const [less_2000_clusters, more_2000_clusters] = partition(
+    cluster_items,
+    (cluster_item) => cluster_item.count <= 2000
   );
 
-  const branched_big_cluster = await branchVacanciesFromDeepCluster(
-    big_area_clusters
+  // branching more_2000_clusters
+  const urls = more_2000_clusters.map((item) => item.url);
+  const reponses: API.Response[] = await Promise.all(
+    urls.map((url) =>
+      fetch(url, {
+        headers: hh_headers,
+      }).then((res) => res.json())
+    )
   );
 
-  const paginated_urls_from_big_clusters =
-    paginateClusters(branched_big_cluster);
+  const branched_clusters: API.Cluster[] = reponses.flatMap(
+    (res) => res.clusters
+  );
 
-  const paginated_urls_from_small_clusters =
-    paginateClusters(small_area_clusters);
+  const experience_items = formatClusters(branched_clusters).experience.items;
 
-  return [
-    ...paginated_urls_from_big_clusters,
-    ...paginated_urls_from_small_clusters,
-  ];
+  return [...less_2000_clusters, ...experience_items];
+};
+
+const branchBySchedule = async (
+  cluster_items: API.ClusterItem[]
+): Promise<API.ClusterItem[]> => {
+  const urls = cluster_items.map((item) => item.url);
+  const reponses: API.Response[] = await Promise.all(
+    urls.map((url) =>
+      fetch(url, {
+        headers: hh_headers,
+      }).then((res) => res.json())
+    )
+  );
+
+  const branched_clusters: API.Cluster[] = reponses.flatMap(
+    (res) => res.clusters
+  );
+
+  const branched_by_schedule = branched_clusters.reduce((acc, cluster) => {
+    if (cluster.id === "schedule") {
+      acc.push(...cluster.items);
+    }
+
+    return acc;
+  }, [] as API.ClusterItem[]);
+
+  return [...branched_by_schedule];
+};
+
+const branchByProfessionalRole = async (
+  cluster_items: API.ClusterItem[]
+): Promise<API.ClusterItem[]> => {
+  const urls = cluster_items.map((item) => item.url);
+  const reponses: API.Response[] = await Promise.all(
+    urls.map((url) =>
+      fetch(url, {
+        headers: hh_headers,
+      }).then((res) => res.json())
+    )
+  );
+
+  const branched_clusters: API.Cluster[] = reponses.flatMap(
+    (res) => res.clusters
+  );
+
+  const branched_by_professional_role = branched_clusters.reduce(
+    (acc, cluster) => {
+      if (cluster.id === "professional_role") {
+        acc.push(...cluster.items);
+      }
+
+      return acc;
+    },
+    [] as API.ClusterItem[]
+  );
+
+  return branched_by_professional_role;
+};
+
+const branchByIndustry = async (
+  cluster_items: API.ClusterItem[]
+): Promise<API.ClusterItem[]> => {
+  const urls = cluster_items.map((item) => item.url);
+  const reponses: API.Response[] = await Promise.all(
+    urls.map((url) =>
+      fetch(url, {
+        headers: hh_headers,
+      }).then((res) => res.json())
+    )
+  );
+
+  const branched_clusters: API.Cluster[] = reponses.flatMap(
+    (res) => res.clusters
+  );
+
+  const branched_by_industry = branched_clusters.reduce((acc, cluster) => {
+    if (cluster.id === "industry") {
+      acc.push(...cluster.items);
+    }
+
+    return acc;
+  }, [] as API.ClusterItem[]);
+
+  return branched_by_industry;
 };
 
 /**
