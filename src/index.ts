@@ -1,4 +1,7 @@
-import getCLI from "./cli";
+import { createConnection } from "typeorm";
+import getCLI from "./cli.js";
+
+await createConnection()
 
 const cli = getCLI();
 

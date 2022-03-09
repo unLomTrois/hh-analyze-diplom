@@ -1,3 +1,4 @@
+import { URL } from "url";
 import { API } from "../types/api/module";
 
 export const buildQueryURL = (raw_query: API.Query) => {

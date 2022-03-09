@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "build": "tsc -b tsconfig.json",
-    "cli": "node --experimental-specifier-resolution=node --experimental-fetch build/index.js"
+    "cli": "node --moduleResolution --experimental-fetch build/index.js",
+    "tscli": "node --loader ts-node/esm --experimental-fetch src/index.ts",
+    "start": "node --loader ts-node/esm --experimental-specifier-resolution=node --experimental-fetch src/index.ts"
   },
   "keywords": [
     "headhunter",
@@ -22,11 +24,14 @@
     "chalk": "^4.1.1",
     "cli-spinner": "^0.2.10",
     "commander": "^7.2.0",
+    "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "node-fetch": "^2.6.7",
     "pg": "^8.7.3",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.7.0",
     "typeorm": "^0.2.45",
-    "typescript": "^4.2.3"
+    "typescript": "^4.7.0-dev.20220308"
   },
   "devDependencies": {
     "@types/cli-spinner": "^0.2.0",

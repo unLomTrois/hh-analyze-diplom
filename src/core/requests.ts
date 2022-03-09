@@ -1,5 +1,8 @@
 import { Spinner } from "cli-spinner";
 import { chunk, partition } from "lodash-es";
+import fetch from "node-fetch";
+import { getConnection, getRepository } from "typeorm";
+import { Vacancy } from "../entity/Vacancy";
 import { API } from "../types/api/module";
 import { fetchCache, formatClusters, paginateClusters } from "../utils";
 
@@ -33,10 +36,26 @@ export const getVacancies = async (urls: string[]) => {
   spinner.setSpinnerString("|/-\\");
   spinner.start();
 
+  const connection = getConnection();
+
   let i = 1;
-  for (const chunk of chunked_urls) {
+  for (const urls_chunk of chunked_urls) {
     spinner.setSpinnerTitle(`${i}/${chunked_urls.length} %s`);
-    vacancies.push(...(await getVacanciesFromURLs(chunk)));
+
+    const vacs_from_chunk = await getVacanciesFromURLs(urls_chunk);
+
+    vacancies.push(...vacs_from_chunk);
+
+    for (const chunkItem of chunk(vacs_from_chunk, 100)) {
+      await connection
+        .createQueryBuilder()
+        .insert()
+        .into(Vacancy)
+        .values(chunkItem)
+        .orIgnore(true)
+        .execute();
+    }
+
     i++;
   }
   console.log("");
@@ -64,7 +83,7 @@ export const getFullVacancies = async (
   return full_vacancies;
 };
 
-export const getURLsFromClusters = async (clusters: API.FormattedClusters) => {  
+export const getURLsFromClusters = async (clusters: API.FormattedClusters) => {
   const [small_area_clusters, big_area_clusters] = partition(
     clusters?.area?.items ?? clusters.metro?.items,
     (cluster) => cluster.count <= 2000
@@ -74,13 +93,11 @@ export const getURLsFromClusters = async (clusters: API.FormattedClusters) => {
     big_area_clusters
   );
 
-  const paginated_urls_from_big_clusters = paginateClusters(
-    branched_big_cluster
-  );
+  const paginated_urls_from_big_clusters =
+    paginateClusters(branched_big_cluster);
 
-  const paginated_urls_from_small_clusters = paginateClusters(
-    small_area_clusters
-  );
+  const paginated_urls_from_small_clusters =
+    paginateClusters(small_area_clusters);
 
   return [
     ...paginated_urls_from_big_clusters,

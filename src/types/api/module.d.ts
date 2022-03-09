@@ -113,17 +113,32 @@ export namespace API {
       name: string;
       id: string;
     };
-    response_letter_required: string;
+    response_letter_required: boolean;
     type: {
       id: string;
       name: string;
     };
-    archived: string;
+    archived: boolean;
     working_days: any[];
     working_time_intervals: any[];
     working_time_modes: any[];
     accept_temporary: boolean;
   }
+
+  export interface MetroStation {
+    station_id: string;
+    station_name: string;
+    line_id: string;
+    line_name: string;
+    lat: number | null;
+    lng: number | null;
+  }
+
+  export interface IDNAME {
+    id: string;
+    name: string;
+  }
+
 
   export interface DriverLicenseType {
     id: string;
