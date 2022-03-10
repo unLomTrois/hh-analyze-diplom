@@ -1,5 +1,5 @@
 import { Command } from "commander";
-import { getArea, getFromLog } from "./utils";
+import { getArea, getFromLog, saveToFile } from "./utils";
 import { API } from "./types/api/module";
 import { getFull, search, prepare, checkForUnique } from "./core/index.js";
 import { analyze } from "./core/analyze";
@@ -21,7 +21,8 @@ const getCLI = () => {
       "название территории поиска или индекс",
       "Россия"
     )
-    .option("-S, --silent", "не выводить информацию в консоль");
+    .option("-S, --silent", "не выводить информацию в консоль")
+    .option("-s, --save", "сохранить данные в файл");
 
   // инициализация команд (операций)
   cli
@@ -65,10 +66,20 @@ const getCLI = () => {
   cli
     .command("get-full")
     .description("получает полное представление вакансий")
-    .action(() => {
+    .action(async () => {
       const vacancies: API.Vacancy[] = getFromLog("data", "vacancies.json");
+      const full_vacancies = await getFull(vacancies);
+      if (cli.opts().all) {
+        saveToFile(full_vacancies, "data", "full_vacancies.json");
+      }
+    });
 
-      getFull(vacancies);
+  cli
+    .command("prepare")
+    .description("подготовить полные вакансии для выдачи")
+    .action(async () => {
+      const full_vacancies = await getFromLog("data", "full_vacancies.json");
+      prepare(full_vacancies)
     });
 
   cli
