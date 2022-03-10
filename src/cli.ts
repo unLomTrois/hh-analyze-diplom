@@ -53,7 +53,7 @@ const getCLI = () => {
       }
     });
 
-    cli
+  cli
     .command("unique")
     .description("получает полное представление вакансий")
     .action(() => {
@@ -61,7 +61,6 @@ const getCLI = () => {
 
       checkForUnique(vacancies);
     });
-
 
   cli
     .command("get-full")
