@@ -2,12 +2,7 @@ import { chunk, compact } from "lodash-es";
 import { getConnection } from "typeorm";
 import { Vacancy } from "../entity/Vacancy.js";
 import { API } from "../types/api/module.js";
-import {
-  buildQueryURL,
-  formatClusters,
-  getFromLog,
-  saveToFile,
-} from "../utils";
+import { buildRootURL, formatClusters, getFromLog, saveToFile } from "../utils";
 import { getURLs } from "./branch.js";
 import {
   getFullVacancies,
@@ -16,12 +11,12 @@ import {
 } from "./requests.js";
 
 export const search = async (query: API.Query) => {
-  const query_url = buildQueryURL({
+  const query_url = buildRootURL({
     ...query,
     per_page: 0,
     page: 0,
   });
-  console.log("Коренной запрос:", query_url)
+  console.log("Коренной запрос:", query_url);
 
   const response: API.Response = await getVacanciesInfo(query_url);
   console.log("всего по данному запросу найдено:", response.found, "вакансий");
@@ -69,21 +64,23 @@ export const checkForUnique = async (vacancies: API.Vacancy[]) => {
   for (const chunkItem of chunk(compact(vacancies), 100)) {
     console.log(i);
     try {
-
       await connection
-      .createQueryBuilder()
-      .insert()
-      .into(Vacancy)
-      .values(chunkItem)
-      .orIgnore(true)
-      .execute();
+        .createQueryBuilder()
+        .insert()
+        .into(Vacancy)
+        .values(chunkItem)
+        .orIgnore(true)
+        .execute();
       i++;
     } catch (e) {
-      console.log(chunkItem)
+      console.log(chunkItem);
       break;
     }
   }
-  console.log("вставка закончена, число:", await connection.getRepository(Vacancy).count())
+  console.log(
+    "вставка закончена, число:",
+    await connection.getRepository(Vacancy).count()
+  );
 };
 
 export const getFull = async (vacancies: API.Vacancy[]) => {
