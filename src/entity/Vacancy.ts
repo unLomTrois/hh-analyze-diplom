@@ -26,14 +26,8 @@ export class Vacancy {
     metro_stations: API.MetroStation[];
   } | null;
 
-  // @Column()
-  alternate_url: string;
-
   @Column()
   apply_alternate_url: string;
-
-  @Column("jsonb", { nullable: true })
-  department: API.IDNAME;
 
   @Column("jsonb", { nullable: true })
   salary: {
