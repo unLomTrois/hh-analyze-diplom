@@ -32,12 +32,14 @@ const getCLI = () => {
       const area = await getArea(cli.opts().area);
 
       const raw_query: API.Query = {
-        text: text,
+        // text: text,
         area: area,
+        specialization: "1",
         clusters: true,
+        // industry: "7"
       };
 
-      const data = search({ ...raw_query, text, area });
+      const data = search({ ...raw_query, area });
 
       if (cli.opts().all) {
         await data
@@ -69,7 +71,7 @@ const getCLI = () => {
     .action(async () => {
       const vacancies: API.Vacancy[] = getFromLog("data", "vacancies.json");
       const full_vacancies = await getFull(vacancies);
-      if (cli.opts().all) {
+      if (cli.opts().save) {
         saveToFile(full_vacancies, "data", "full_vacancies.json");
       }
     });
@@ -79,7 +81,7 @@ const getCLI = () => {
     .description("подготовить полные вакансии для выдачи")
     .action(async () => {
       const full_vacancies = await getFromLog("data", "full_vacancies.json");
-      prepare(full_vacancies)
+      prepare(full_vacancies);
     });
 
   cli
