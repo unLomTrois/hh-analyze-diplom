@@ -71,9 +71,6 @@ export class Vacancy {
   @Column()
   response_letter_required: boolean;
 
-  @Column("jsonb", { nullable: true })
-  type: API.IDNAME;
-
   @Column()
   archived: boolean;
 
