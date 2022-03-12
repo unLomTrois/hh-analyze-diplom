@@ -1,5 +1,5 @@
 import { Spinner } from "cli-spinner";
-import { chunk } from "lodash-es";
+import { chunk, compact } from "lodash-es";
 import fetch from "node-fetch";
 import { getConnection, getRepository } from "typeorm";
 import { Vacancy } from "../entity/Vacancy";
@@ -36,7 +36,7 @@ export const getVacancies = async (urls: string[]) => {
   spinner.setSpinnerString("|/-\\");
   spinner.start();
 
-  // const connection = getConnection();
+  const connection = getConnection();
 
   let i = 1;
   for (const urls_chunk of chunked_urls) {
@@ -46,18 +46,28 @@ export const getVacancies = async (urls: string[]) => {
 
     vacancies.push(...vacs_from_chunk);
 
-    // for (const chunkItem of chunk(vacs_from_chunk, 100)) {
-    //   await connection
-    //     .createQueryBuilder()
-    //     .insert()
-    //     .into(Vacancy)
-    //     .values(chunkItem)
-    //     .orIgnore(true)
-    //     .execute();
-    // }
+    for (const chunkItem of chunk(compact(vacancies), 100)) {
+      try {
+        await connection
+          .createQueryBuilder()
+          .insert()
+          .into(Vacancy)
+          .values(chunkItem)
+          .orIgnore(true)
+          .execute();
+      } catch (e) {
+        console.log(chunkItem);
+        break;
+      }
+    }
 
     i++;
   }
+  console.log(
+    "поиск вакансий закончен, всего найдено:",
+    await connection.getRepository(Vacancy).count()
+  );
+
   console.log("");
   spinner.stop();
 
@@ -82,8 +92,6 @@ export const getFullVacancies = async (
 
   return full_vacancies;
 };
-
-
 
 export const getVacanciesFromURLs = async (
   urls: string[]
