@@ -8,7 +8,8 @@
     "build": "tsc -b tsconfig.json",
     "cli": "node --moduleResolution --experimental-fetch build/index.js",
     "tscli": "node --loader ts-node/esm --experimental-fetch src/index.ts",
-    "start": "node --loader ts-node/esm --experimental-specifier-resolution=node --experimental-fetch src/index.ts"
+    "start": "node --loader ts-node/esm --experimental-specifier-resolution=node --experimental-fetch src/index.ts",
+    "typeorm": "node --loader ts-node/esm ./node_modules/typeorm/cli.js"
   },
   "keywords": [
     "headhunter",
