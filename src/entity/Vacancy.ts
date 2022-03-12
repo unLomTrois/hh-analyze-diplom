@@ -65,7 +65,7 @@ export class Vacancy {
   @Column()
   url: string;
 
-  @Column()
+  @Column("timestamptz")
   published_at: string;
 
   @Column("jsonb", { nullable: true })
