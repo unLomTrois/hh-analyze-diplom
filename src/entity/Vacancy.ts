@@ -9,9 +9,6 @@ export class Vacancy {
   @Column()
   premium: boolean;
 
-  @Column("simple-json")
-  relations: any[];
-
   @Column()
   has_test: boolean;
 
