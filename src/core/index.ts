@@ -21,6 +21,7 @@ export const search = async (query: API.Query) => {
     per_page: 0,
     page: 0,
   });
+  console.log("Коренной запрос:", query_url)
 
   const response: API.Response = await getVacanciesInfo(query_url);
   console.log("всего по данному запросу найдено:", response.found, "вакансий");
