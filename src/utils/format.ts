@@ -1,16 +1,21 @@
 import { URL } from "url";
 import { API } from "../types/api/module";
 
-export const buildQueryURL = (raw_query: API.Query) => {
-  const query = queryToString(raw_query);
+/**
+ * создаёт коренной запрос, от которого ветвятся остальные
+ * @param  {API.Query} raw_query
+ */
+export const buildRootURL = (raw_query: API.Query) => {
+  const query = queryToString({ ...raw_query, per_page: 0, page: 0 });
 
   return "https://api.hh.ru/vacancies?" + query;
 };
 
 export const formatClusters = (
-  clusters: API.Cluster[], found?: number
+  clusters: API.Cluster[],
+  found?: number
 ): API.FormattedClusters => {
-  return { ...convertArrayToObject(clusters, "id"), found }
+  return { ...convertArrayToObject(clusters, "id"), found };
 };
 
 const queryToString = (query: API.Query): string => {

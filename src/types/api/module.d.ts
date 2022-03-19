@@ -263,6 +263,7 @@ export namespace API {
     employment: Cluster;
     schedule: Cluster;
     label: Cluster;
+    professional_role: Cluster;
   }
 
   export interface Cluster {

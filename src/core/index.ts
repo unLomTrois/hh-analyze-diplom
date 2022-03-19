@@ -55,6 +55,57 @@ export const search = async (query: API.Query) => {
   return vacancies;
 };
 
+export const quick = async () => {
+  const raw_query: API.Query = {
+    area: 113,
+    clusters: true,
+  };
+
+  const root_query = buildRootURL(raw_query);
+  console.log("Коренной запрос:", root_query);
+
+  const response: API.Response = await getVacanciesInfo(root_query);
+
+  const clusters: API.FormattedClusters = formatClusters(
+    response.clusters,
+    response.found
+  );
+
+  const nested_clusters = {
+    count: response.found,
+    ...clusters.professional_role,
+    items: await Promise.all(
+      clusters.professional_role.items.map(async (item) => {
+        const response: API.Response = await getVacanciesInfo(item.url);
+        const clusters: API.FormattedClusters = formatClusters(
+          response.clusters,
+          response.found
+        );
+        return { ...item, salary: clusters.salary };
+      })
+    ),
+  };
+
+  console.log("зафыа")
+
+  // const nested_clusters = {
+  //   ...clusters.area,
+  //   items: await Promise.all(
+  //     clusters.area.items.map(async (item) => {
+  //       const response: API.Response = await getVacanciesInfo(item.url);
+  //       const clusters: API.FormattedClusters = formatClusters(
+  //         response.clusters,
+  //         response.found
+  //       );
+  //       return { ...item, salary: clusters.salary };
+  //     })
+  //   ),
+  // };
+  // console.log("зафыа")
+
+  saveToFile(nested_clusters, "data", "nested.json");
+};
+
 export const checkForUnique = async (vacancies: API.Vacancy[]) => {
   console.log(vacancies.length);
   const connection = getConnection();

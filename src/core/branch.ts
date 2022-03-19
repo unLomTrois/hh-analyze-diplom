@@ -20,7 +20,7 @@ export const getURLs = async (
     return paginateLink(url, pages);
   }
 
-  console.log("парсинг кластеров");
+  console.log("парсинг кластеров...");
   return await getURLsFromClusters(clusters);
 };
 
@@ -64,7 +64,7 @@ export const getURLsFromClusters = async (
 };
 
 const deepBranch = async (cluster_items: API.ClusterItem[]) => {
-  console.log("начало ветвления");
+  console.log("начало ветвления...");
 
   const final_items: API.ClusterItem[] = [];
 

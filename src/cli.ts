@@ -1,8 +1,10 @@
 import { Command } from "commander";
-import { getArea, getFromLog, saveToFile } from "./utils";
+import { buildRootURL, formatClusters, getArea, getFromLog, saveToFile } from "./utils";
 import { API } from "./types/api/module";
-import { getFull, search, prepare, checkForUnique } from "./core/index.js";
+import { getFull, search, prepare, checkForUnique, quick } from "./core/index.js";
 import { analyze } from "./core/analyze";
+import { getURLs } from "./core/branch";
+import { getVacanciesInfo } from "./core/requests";
 
 const getCLI = () => {
   const cli = new Command();
@@ -54,6 +56,16 @@ const getCLI = () => {
             return analyze(prepared_vacancies, clusters);
           });
       }
+    });
+
+  cli
+    .command("quick")
+    .description("быстрый анализ рынка")
+    .action(async () => {
+      await quick()
+
+      // let urls = await getURLs(root_query, response.found, clusters);
+      // saveToFile(urls, "data", "urls1.json");
     });
 
   cli
