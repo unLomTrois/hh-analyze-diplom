@@ -48,6 +48,8 @@ export namespace API {
     search_field?: search_field;
     clusters?: boolean;
     only_with_salary?: boolean;
+    date_from?: string;
+    date_to?: string;
   }
 
   /// URL
