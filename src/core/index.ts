@@ -86,24 +86,7 @@ export const quick = async () => {
     ),
   };
 
-  console.log("зафыа")
-
-  // const nested_clusters = {
-  //   ...clusters.area,
-  //   items: await Promise.all(
-  //     clusters.area.items.map(async (item) => {
-  //       const response: API.Response = await getVacanciesInfo(item.url);
-  //       const clusters: API.FormattedClusters = formatClusters(
-  //         response.clusters,
-  //         response.found
-  //       );
-  //       return { ...item, salary: clusters.salary };
-  //     })
-  //   ),
-  // };
-  // console.log("зафыа")
-
-  saveToFile(nested_clusters, "data", "nested.json");
+  saveToFile(nested_clusters, "data", "nested.json", 2, false);
 };
 
 export const checkForUnique = async (vacancies: API.Vacancy[]) => {
