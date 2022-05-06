@@ -1,7 +1,7 @@
 import { createConnection } from "typeorm";
 import getCLI from "./cli.js";
 
-// await createConnection()
+await createConnection()
 
 const cli = getCLI();
 
