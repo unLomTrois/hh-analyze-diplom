@@ -24,7 +24,8 @@ const getCLI = () => {
       "Россия"
     )
     .option("-S, --silent", "не выводить информацию в консоль")
-    .option("-s, --save", "сохранить данные в файл");
+    .option("-s, --save", "сохранить данные в файл")
+    .option("-M, --magic", "использовать умный поиск");
 
   // инициализация команд (операций)
   cli
@@ -34,11 +35,12 @@ const getCLI = () => {
       const area = await getArea(cli.opts().area);
 
       const raw_query: API.Query = {
-        // text: text,
+        text: text,
         area: area,
-        specialization: "1",
+        // specialization: "1",
         clusters: true,
         // industry: "7"
+        no_magic: cli.opts().magic
       };
 
       const data = search({ ...raw_query, area });
