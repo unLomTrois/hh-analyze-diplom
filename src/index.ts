@@ -1,12 +1,16 @@
 import { createConnection } from "typeorm";
 import getCLI from "./cli.js";
 
-await createConnection().then(() => {
-  console.log("Connection established!")
+import { oraPromise } from "ora";
 
-  const cli = getCLI();
+oraPromise(async () => {
+  await createConnection();
+}, "подключение к базе данных")
+  .then(() => {
+    const cli = getCLI();
 
-  cli.parse(process.argv);
-}).catch(error => {
-  console.error(error)
-})
+    cli.parse(process.argv);
+  })
+  .catch((error) => {
+    console.error(error);
+  });

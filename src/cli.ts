@@ -75,6 +75,7 @@ const getCLI = () => {
     .description("получает полное представление вакансий")
     .action(() => {
       const vacancies: API.Vacancy[] = getFromLog("data", "vacancies.json");
+      console.log("blya", vacancies.length)
 
       checkForUnique(vacancies);
     });

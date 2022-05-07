@@ -1,4 +1,5 @@
 import { chunk, compact } from "lodash-es";
+import ora, { oraPromise } from "ora";
 import { getConnection } from "typeorm";
 import { Vacancy } from "../entity/Vacancy.js";
 import { API } from "../types/api/module.js";
@@ -11,17 +12,23 @@ import {
 } from "./requests.js";
 
 export const search = async (query: API.Query) => {
-  const query_url = buildRootURL({
-    ...query,
-    per_page: 0,
-    page: 0,
-  });
+  const spinner = ora().start();
 
-  const response: API.Response = await getVacanciesInfo(query_url);
+  const query_url = await oraPromise(async () => {
+    return buildRootURL({
+      ...query,
+      per_page: 0,
+      page: 0,
+    });
+  }, "формирование коренного запроса...");
+  spinner.info(`Коренной запрос: ${query_url}`);
 
-  console.log("Коренной запрос:", query_url);
+  const response: API.Response = await oraPromise(
+    getVacanciesInfo(query_url),
+    "получение данных по запросу..."
+  );
 
-  console.log("всего по данному запросу найдено:", response.found, "вакансий");
+  spinner.info(`всего по данному запросу найдено: ${response.found} вакансий`);
 
   const clusters: API.FormattedClusters = formatClusters(
     response.clusters,
@@ -33,14 +40,13 @@ export const search = async (query: API.Query) => {
   let urls = await getURLs(query_url, response.found, clusters);
   saveToFile(urls, "data", "urls.json");
 
-  console.log(
-    "количество запросов для получения сокращённых вакансий:",
-    urls.length
+  return;
+  spinner.info(
+    `количество запросов для получения сокращённых вакансий: ${urls.length}`
   );
 
   const vacancies: API.Vacancy[] = await getVacancies(urls);
 
-  console.log(vacancies.length);
   saveToFile(compact(vacancies), "data", "vacancies.json");
   saveToFile(
     {
@@ -51,6 +57,8 @@ export const search = async (query: API.Query) => {
     "data",
     "vacancies2.json"
   );
+
+  spinner.stop();
 
   return vacancies;
 };

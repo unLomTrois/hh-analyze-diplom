@@ -26,6 +26,7 @@
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "node-fetch": "^2.6.7",
+    "ora": "^6.1.0",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "ts-node": "^10.7.0",

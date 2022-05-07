@@ -1,5 +1,6 @@
 import { partition } from "lodash-es";
 import fetch from "node-fetch";
+import ora from "ora";
 import { API } from "../types/api/module";
 import {
   formatClusters,
@@ -20,18 +21,19 @@ export const getURLs = async (
     return paginateLink(url, pages);
   }
 
-  console.log("парсинг кластеров...");
+  ora().info("парсинг кластеров...")
   return await getURLsFromClusters(clusters);
 };
 
 export const getURLsFromClusters = async (
   clusters: API.FormattedClusters
 ): Promise<string[]> => {
-  // поделить кластера по регионам, где больше 2000 и где меньше
+  // если нет кластера "area", то поиск ведётся по конкретному региону, значит делить по регионам уже не нужно
   if (clusters.area === undefined) {
     return paginateClusters(await deepBranch(clusters.employment.items));
   }
 
+  // поделить кластера по регионам, где больше 2000 и где меньше
   const final_items: API.ClusterItem[] = [];
   let [less_2000_clusters, more_2000_clusters] = partition(
     clusters.area.items,
@@ -63,19 +65,31 @@ export const getURLsFromClusters = async (
   return paginateClusters(final_items);
 };
 
+const getcounts = (items: API.ClusterItem[]): number => {
+  const counts = items.map(item => item.count)
+  const count = counts.reduce((acc, c) => acc + c, 0)
+  console.log("count: ", count)
+  return count
+}
+
 const deepBranch = async (cluster_items: API.ClusterItem[]) => {
   console.log("начало ветвления...");
 
   const final_items: API.ClusterItem[] = [];
+
+  getcounts(cluster_items)
 
   const branched_by_employment = await branchByEmployment(cluster_items);
   let [less_2000_clusters, more_2000_clusters] = partition(
     branched_by_employment,
     (cluster_item) => cluster_item.count <= 2000
   );
+  getcounts(branched_by_employment)
+  saveToFile(branched_by_employment, "data", "branched_by_employment.json")
   final_items.push(...less_2000_clusters);
 
   const branched_by_schedule = await branchBySchedule(more_2000_clusters);
+  getcounts(branched_by_schedule);
   [less_2000_clusters, more_2000_clusters] = partition(
     branched_by_schedule,
     (cluster_item) => cluster_item.count <= 2000
@@ -85,6 +99,9 @@ const deepBranch = async (cluster_items: API.ClusterItem[]) => {
   const branched_by_professional_role = await branchByProfessionalRole(
     more_2000_clusters
   );
+  getcounts(branched_by_professional_role);
+  saveToFile(branched_by_professional_role, "data", "branched_by_professional_role.json");
+
   [less_2000_clusters, more_2000_clusters] = partition(
     branched_by_professional_role,
     (cluster_item) => cluster_item.count <= 2000

@@ -6,6 +6,8 @@ import { countVacancies, insertVacancies } from "../db";
 import { API } from "../types/api/module";
 import { fetchCache, formatClusters } from "../utils";
 
+import ora, { oraPromise } from "ora";
+
 export const hh_headers = {
   "User-Agent": "labor-market-analyzer (vadim.kuz02@gmail.com)",
 };
@@ -26,44 +28,53 @@ export const getVacanciesInfo = async (url: string): Promise<API.Response> => {
 export const getVacancies = async (urls: string[]) => {
   const chunk_size = 50;
   const chunked_urls = chunk(urls, chunk_size);
-
-  console.log("количество чанков:", chunked_urls.length);
-  console.log("размер чанка:", chunk_size);
-
+  const spinner = ora("подготовка").start();
   const vacancies: API.Vacancy[] = [];
 
-  const spinner = new Spinner("подготовка... %s");
-  spinner.setSpinnerString("|/-\\");
-  spinner.start();
+  spinner.info(`количество чанков: ${chunked_urls.length}`);
+  spinner.info(`размер чанка: ${chunk_size}`);
 
   const connection = getConnection();
+  spinner.info("установка соединения с базой данных");
 
-  let i = 1;
-  for (const urls_chunk of chunked_urls) {
-    spinner.setSpinnerTitle(`${i}/${chunked_urls.length} %s`);
+  await oraPromise(async (spinner) => {
+    let i = 1;
+    for (const urls_chunk of chunked_urls) {
+      spinner.text = `скачивание вакансий... ${i}/${chunked_urls.length}`;
 
-    const vacs_from_chunk = await getVacanciesFromURLs(urls_chunk);
+      const vacs_from_chunk = await getVacanciesFromURLs(urls_chunk);
 
-    vacancies.push(...vacs_from_chunk);
+      vacancies.push(...vacs_from_chunk);
 
-    for (const chunkItem of chunk(compact(vacancies), 100)) {
+      i++;
+    }
+  }, "скачивание вакансий...");
+
+  await oraPromise(async (spinner) => {
+    let i = 1;
+
+    const compacted_vacs = compact(vacancies)
+    const chunked_vacancies = chunk(compacted_vacs, 100);
+    // spinner.info(`вакансий: ${vacancies.length}`)
+    // spinner.info(`компакт: ${compacted_vacs.length}`)
+    for (const chunkItem of chunked_vacancies) {
       try {
-        await insertVacancies(connection, chunkItem)
+        spinner.text = `сохранение вакансий в базу данных... ${i}/${chunked_vacancies.length}`;
+        await insertVacancies(connection, chunkItem);
       } catch (e) {
-        console.error("произошла ошибка:", e)
+        spinner.fail("произошла ошибка");
+        console.error(e);
         console.error("чанк, приведший к ошибке:", chunkItem);
         break;
       }
+      i++;
     }
+  }, "сохранение вакансий в базу данных...");
 
-    i++;
-  }
-  console.log(
-    "поиск вакансий закончен, всего найдено:",
-    await countVacancies()
+  spinner.info(
+    `поиск вакансий закончен, всего найдено: ${await countVacancies()}`
   );
 
-  console.log("");
   spinner.stop();
 
   return vacancies;
