@@ -12,9 +12,6 @@ export class Vacancy {
   @Column()
   has_test: boolean;
 
-  @Column({ nullable: true })
-  response_url: string | null;
-
   @Column("jsonb", { nullable: true })
   address: {
     city: string | null;
@@ -70,18 +67,6 @@ export class Vacancy {
 
   @Column()
   response_letter_required: boolean;
-
-  @Column()
-  archived: boolean;
-
-  @Column("jsonb")
-  working_days: API.IDNAME[];
-
-  @Column("jsonb")
-  working_time_intervals: API.IDNAME[];
-
-  @Column("jsonb")
-  working_time_modes: API.IDNAME[];
 
   @Column()
   accept_temporary: boolean;
