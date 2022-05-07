@@ -25,7 +25,7 @@ const getCLI = () => {
     )
     .option("-S, --silent", "не выводить информацию в консоль")
     .option("-s, --save", "сохранить данные в файл")
-    .option("-M, --magic", "использовать умный поиск");
+    .option("-m, --magic", "использовать умный поиск");
 
   // инициализация команд (операций)
   cli
@@ -40,7 +40,7 @@ const getCLI = () => {
         // specialization: "1",
         clusters: true,
         // industry: "7"
-        no_magic: cli.opts().magic
+        no_magic: cli.opts().magic ?? true
       };
 
       const data = search({ ...raw_query, area });
