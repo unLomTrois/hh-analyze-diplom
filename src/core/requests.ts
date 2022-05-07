@@ -2,7 +2,7 @@ import { Spinner } from "cli-spinner";
 import { chunk, compact } from "lodash-es";
 import fetch from "node-fetch";
 import { getConnection, getRepository } from "typeorm";
-import { Vacancy } from "../entity/Vacancy";
+import { countVacancies, insertVacancies } from "../db";
 import { API } from "../types/api/module";
 import { fetchCache, formatClusters } from "../utils";
 
@@ -48,15 +48,10 @@ export const getVacancies = async (urls: string[]) => {
 
     for (const chunkItem of chunk(compact(vacancies), 100)) {
       try {
-        await connection
-          .createQueryBuilder()
-          .insert()
-          .into(Vacancy)
-          .values(chunkItem)
-          .orIgnore(true)
-          .execute();
+        await insertVacancies(connection, chunkItem)
       } catch (e) {
-        console.log(chunkItem);
+        console.error("произошла ошибка:", e)
+        console.error("чанк, приведший к ошибке:", chunkItem);
         break;
       }
     }
@@ -65,7 +60,7 @@ export const getVacancies = async (urls: string[]) => {
   }
   console.log(
     "поиск вакансий закончен, всего найдено:",
-    await connection.getRepository(Vacancy).count()
+    await countVacancies()
   );
 
   console.log("");
