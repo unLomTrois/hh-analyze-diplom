@@ -40,7 +40,6 @@ export const search = async (query: API.Query) => {
   let urls = await getURLs(query_url, response.found, clusters);
   saveToFile(urls, "data", "urls.json");
 
-  return;
   spinner.info(
     `количество запросов для получения сокращённых вакансий: ${urls.length}`
   );

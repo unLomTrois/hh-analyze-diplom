@@ -40,7 +40,7 @@ const getCLI = () => {
         // specialization: "1",
         clusters: true,
         // industry: "7"
-        no_magic: cli.opts().magic ?? true
+        // no_magic: cli.opts().magic ?? false
       };
 
       const data = search({ ...raw_query, area });
