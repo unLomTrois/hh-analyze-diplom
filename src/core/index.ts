@@ -11,7 +11,12 @@ import {
   getVacanciesInfo,
 } from "./requests.js";
 
-export const search = async (query: API.Query) => {
+/**
+ * поиск вакансий по объекту запроса
+ * @param query запрос, перечисление нужных свойств вакансий
+ * @returns массив вакансий
+ */
+export const search = async (query: API.Query): Promise<API.Vacancy[]> => {
   const spinner = ora().start();
 
   const query_url = await oraPromise(async () => {
@@ -62,6 +67,9 @@ export const search = async (query: API.Query) => {
   return vacancies;
 };
 
+/**
+ * быстрый анализ рынка на основе кластерного анализа
+ */
 export const quick = async () => {
   const raw_query: API.Query = {
     area: 113,
@@ -96,6 +104,10 @@ export const quick = async () => {
   saveToFile(nested_clusters, "data", "nested.json", 2, false);
 };
 
+/**
+ * проверка массива вакансий на уникальность, т.к. в процессе его нахождения там могут оказаться дубликаты
+ * @param vacancies массив вакансий
+ */
 export const checkForUnique = async (vacancies: API.Vacancy[]) => {
   console.log(vacancies.length);
   const connection = getConnection();
@@ -124,7 +136,13 @@ export const checkForUnique = async (vacancies: API.Vacancy[]) => {
   );
 };
 
-export const getFull = async (vacancies: API.Vacancy[]) => {
+/**
+ * по массиву сокращённых вакансий находит массив полных
+ * ! перепискать нахождение полных вакансий
+ * @param vacancies массив вакансий
+ * @returns массив полных вакангсий
+ */
+export const getFull = async (vacancies: API.Vacancy[]): Promise<API.FullVacancy[]> => {
   console.log("парсинг полных вакансий");
 
   const full_vacancies_urls = vacancies
@@ -145,7 +163,14 @@ export const getFull = async (vacancies: API.Vacancy[]) => {
   return full_vacancies;
 };
 
-export const prepare = async (full_vacancies: API.FullVacancy[]) => {
+/**
+ * подготовка данных к анализу
+ * ! перепискать
+ * ! deprecated
+ * @param full_vacancies массив полных вакансий
+ * @returns массив приготовленных вакансий
+ */
+export const prepare = async (full_vacancies: API.FullVacancy[]): Promise<API.PreparedVacancy[]> => {
   // нам важны поля key_skills
   const prepared_vacancies: API.PreparedVacancy[] = full_vacancies.map(
     (vac: API.FullVacancy) => {

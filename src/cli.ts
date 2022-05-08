@@ -1,10 +1,14 @@
-import { Command } from "commander";
+import commander, { Command } from "commander";
 import { getArea, getFromLog, saveToFile } from "./utils";
 import { API } from "./types/api/module";
 import { getFull, search, prepare, checkForUnique, quick } from "./core/index.js";
 import { analyze } from "./core/analyze";
 
-const getCLI = () => {
+/**
+ * инициализация CLI
+ * @returns cli instance
+ */
+const getCLI = (): commander.Command => {
   const cli = new Command();
 
   cli.name("node-hh-parser").version("1.0.0");

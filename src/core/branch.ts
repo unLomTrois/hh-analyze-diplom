@@ -2,18 +2,24 @@ import { partition } from "lodash-es";
 import fetch from "node-fetch";
 import ora, { oraPromise } from "ora";
 import { API } from "../types/api/module";
-import {
-  formatClusters,
-  paginateClusters,
-  paginateLink,
-} from "../utils";
+import { formatClusters, paginateClusters, paginateLink } from "../utils";
 import { hh_headers } from "./requests";
 
+/**
+ * "разбивает" коренной запрос на массив ссылок
+ * * чтобы покрыть как можно больше вакансий, а скачивать больше 2000 с одного запроса,
+ * * запрос "разбивается" до тех пор, пока максимально не приблизится к лимиту в 2000 вакансий
+ * * если же найдено меньше 2000, разбивать по кластерам не требуется, и запрос просто пагинируется
+ * @param url коренной запрос
+ * @param found количество найденных вакансий по данному коренному запросу
+ * @param clusters кластера для разбития запроса
+ * @returns массив ссылок на списки вакансий
+ */
 export const getURLs = async (
   url: string,
   found: number,
   clusters: API.FormattedClusters
-) => {
+): Promise<string[]> => {
   if (found <= 2000) {
     const pages: number = Math.ceil(found / 100);
 
@@ -24,10 +30,17 @@ export const getURLs = async (
   return await getURLsFromClusters(clusters);
 };
 
+/**
+ * разбиение кластеров для получения массива ссылок
+ * * если поиск идёт по целой стране, региону, то в кластерах будет кластер "area"
+ * * если же его нет, то делить запрос на регионы не требуется
+ * TODO: переписать, иметь две функции для этого избыточно
+ * @param clusters форматированные кластера
+ * @returns массив ссылок
+ */
 export const getURLsFromClusters = async (
   clusters: API.FormattedClusters
 ): Promise<string[]> => {
-  // если нет кластера "area", то поиск ведётся по конкретному региону, значит делить по регионам уже не нужно
   if (clusters.area === undefined) {
     return paginateClusters(await deepBranch(clusters.employment.items));
   }
@@ -66,14 +79,14 @@ export const getURLsFromClusters = async (
   return paginateClusters(final_items);
 };
 
-const getcounts = (items: API.ClusterItem[]): number => {
-  const counts = items.map((item) => item.count);
-  const count = counts.reduce((acc, c) => acc + c, 0);
-  // console.log("count: ", count);
-  return count;
-};
-
-const deepBranch = async (cluster_items: API.ClusterItem[]) => {
+/**
+ * глубокое ветвление кластеров, ветвит их до тех пор, пока не окажется кластеров с количеством вакансий больше 2000
+ * @param cluster_items массив кластеров
+ * @returns массив разбитых кластеров
+ */
+const deepBranch = async (
+  cluster_items: API.ClusterItem[]
+): Promise<API.ClusterItem[]> => {
   ora().info("начало ветвления...");
 
   const final_items: API.ClusterItem[] = [];

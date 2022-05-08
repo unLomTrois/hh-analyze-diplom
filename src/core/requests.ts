@@ -11,6 +11,12 @@ export const hh_headers = {
   "User-Agent": "labor-market-analyzer (vadim.kuz02@gmail.com)",
 };
 
+/**
+ * получает информацию о вакансиях по запросу url
+ * * обычно используется для получения информации о кластерах ответа
+ * @param url ссылка запроса
+ * @returns ответ содержит информацию о количестве найденных вакансий, их списки, кластера для разбивки поиска
+ */
 export const getVacanciesInfo = async (url: string): Promise<API.Response> => {
   const data: API.Response = await fetch(
     url.match(/[_\.!~*'()-]/) && url.match(/%[0-9a-f]{2}/i)
@@ -24,7 +30,12 @@ export const getVacanciesInfo = async (url: string): Promise<API.Response> => {
   return data;
 };
 
-export const getVacancies = async (urls: string[]) => {
+/**
+ * скачивает и сохраняет вакансии по массиву ссылок
+ * @param urls массив ссылок к спискам вакансий
+ * @returns массив вакансий
+ */
+export const getVacancies = async (urls: string[]): Promise<API.Vacancy[]> => {
   const chunk_size = 50;
   const chunked_urls = chunk(urls, chunk_size);
   const spinner = ora("подготовка").start();
@@ -52,10 +63,8 @@ export const getVacancies = async (urls: string[]) => {
   await oraPromise(async (spinner) => {
     let i = 1;
 
-    const compacted_vacs = compact(vacancies)
+    const compacted_vacs = compact(vacancies);
     const chunked_vacancies = chunk(compacted_vacs, 100);
-    // spinner.info(`вакансий: ${vacancies.length}`)
-    // spinner.info(`компакт: ${compacted_vacs.length}`)
     for (const chunkItem of chunked_vacancies) {
       try {
         spinner.text = `сохранение вакансий в базу данных... ${i}/${chunked_vacancies.length}`;
@@ -79,6 +88,12 @@ export const getVacancies = async (urls: string[]) => {
   return vacancies;
 };
 
+/**
+ * скачивает по ссылкам отдельных вакансий их полную версию
+ * * полная версия вакансий содержит расширенную информацию о вакансии, например, список тегов
+ * @param urls массив ссылок к отдельным вакансиям
+ * @returns массив полных вакансий
+ */
 export const getFullVacancies = async (
   urls: string[]
 ): Promise<API.FullVacancy[]> => {
@@ -98,6 +113,12 @@ export const getFullVacancies = async (
   return full_vacancies;
 };
 
+/**
+ * скачивает вакансии по массиву ссылок
+ * TODO: переименовать, типа fetchVacancies
+ * @param urls массив ссылок к спискам вакансий
+ * @returns массив вакансий
+ */
 export const getVacanciesFromURLs = async (
   urls: string[]
 ): Promise<API.Vacancy[]> => {
@@ -117,6 +138,12 @@ export const getVacanciesFromURLs = async (
   return vacancies;
 };
 
+/**
+ * скачивает полные вакансии по массиву ссылок
+ * TODO: переименовать типа fetchFulLVacancies
+ * @param urls массив к отдельным вакансиям
+ * @returns массив полных вакансий
+ */
 export const getFullVacanciesFromURLs = async (
   urls: string[]
 ): Promise<API.FullVacancy[]> => {
