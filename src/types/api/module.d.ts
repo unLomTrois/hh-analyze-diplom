@@ -48,6 +48,8 @@ export namespace API {
     search_field?: search_field;
     clusters?: boolean;
     only_with_salary?: boolean;
+    date_from?: string;
+    date_to?: string;
   }
 
   /// URL
@@ -113,17 +115,32 @@ export namespace API {
       name: string;
       id: string;
     };
-    response_letter_required: string;
+    response_letter_required: boolean;
     type: {
       id: string;
       name: string;
     };
-    archived: string;
+    archived: boolean;
     working_days: any[];
     working_time_intervals: any[];
     working_time_modes: any[];
     accept_temporary: boolean;
   }
+
+  export interface MetroStation {
+    station_id: string;
+    station_name: string;
+    line_id: string;
+    line_name: string;
+    lat: number | null;
+    lng: number | null;
+  }
+
+  export interface IDNAME {
+    id: string;
+    name: string;
+  }
+
 
   export interface DriverLicenseType {
     id: string;
@@ -240,7 +257,7 @@ export namespace API {
   export interface FormattedClusters {
     found?: number;
     metro?: MetroCluster;
-    area: Cluster;
+    area?: Cluster;
     salary: Cluster;
     sub_industry: Cluster;
     industry: Cluster;
@@ -248,6 +265,7 @@ export namespace API {
     employment: Cluster;
     schedule: Cluster;
     label: Cluster;
+    professional_role: Cluster;
   }
 
   export interface Cluster {

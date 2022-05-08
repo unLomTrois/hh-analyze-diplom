@@ -1,5 +1,16 @@
-import getCLI from "./cli";
+import { createConnection } from "typeorm";
+import getCLI from "./cli.js";
 
-const cli = getCLI();
+import { oraPromise } from "ora";
 
-cli.parse(process.argv);
+oraPromise(async () => {
+  await createConnection();
+}, "подключение к базе данных")
+  .then(() => {
+    const cli = getCLI();
+
+    cli.parse(process.argv);
+  })
+  .catch((error) => {
+    console.error(error);
+  });

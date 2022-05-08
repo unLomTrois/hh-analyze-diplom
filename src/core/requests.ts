@@ -1,12 +1,22 @@
-import { Spinner } from "cli-spinner";
-import { chunk, partition } from "lodash-es";
+import { chunk, compact } from "lodash-es";
+import fetch from "node-fetch";
+import { getConnection } from "typeorm";
+import { countVacancies, insertVacancies } from "../db";
 import { API } from "../types/api/module";
-import { fetchCache, formatClusters, paginateClusters } from "../utils";
+import { fetchCache } from "../utils";
 
-const hh_headers = {
+import ora, { oraPromise } from "ora";
+
+export const hh_headers = {
   "User-Agent": "labor-market-analyzer (vadim.kuz02@gmail.com)",
 };
 
+/**
+ * получает информацию о вакансиях по запросу url
+ * * обычно используется для получения информации о кластерах ответа
+ * @param url ссылка запроса
+ * @returns ответ содержит информацию о количестве найденных вакансий, их списки, кластера для разбивки поиска
+ */
 export const getVacanciesInfo = async (url: string): Promise<API.Response> => {
   const data: API.Response = await fetch(
     url.match(/[_\.!~*'()-]/) && url.match(/%[0-9a-f]{2}/i)
@@ -20,31 +30,70 @@ export const getVacanciesInfo = async (url: string): Promise<API.Response> => {
   return data;
 };
 
-export const getVacancies = async (urls: string[]) => {
+/**
+ * скачивает и сохраняет вакансии по массиву ссылок
+ * @param urls массив ссылок к спискам вакансий
+ * @returns массив вакансий
+ */
+export const getVacancies = async (urls: string[]): Promise<API.Vacancy[]> => {
   const chunk_size = 50;
   const chunked_urls = chunk(urls, chunk_size);
-
-  console.log("количество чанков:", chunked_urls.length);
-  console.log("размер чанка:", chunk_size);
-
+  const spinner = ora("подготовка").start();
   const vacancies: API.Vacancy[] = [];
 
-  const spinner = new Spinner("подготовка... %s");
-  spinner.setSpinnerString("|/-\\");
-  spinner.start();
+  spinner.info(`размер чанка: ${chunk_size}`);
+  spinner.info(`количество чанков: ${chunked_urls.length}`);
 
-  let i = 1;
-  for (const chunk of chunked_urls) {
-    spinner.setSpinnerTitle(`${i}/${chunked_urls.length} %s`);
-    vacancies.push(...(await getVacanciesFromURLs(chunk)));
-    i++;
-  }
-  console.log("");
+  const connection = getConnection();
+  spinner.info("установка соединения с базой данных");
+
+  await oraPromise(async (spinner) => {
+    let i = 1;
+    for (const urls_chunk of chunked_urls) {
+      spinner.text = `скачивание вакансий... ${i}/${chunked_urls.length}`;
+
+      const vacs_from_chunk = await getVacanciesFromURLs(urls_chunk);
+
+      vacancies.push(...vacs_from_chunk);
+
+      i++;
+    }
+  }, "скачивание вакансий...");
+
+  await oraPromise(async (spinner) => {
+    let i = 1;
+
+    const compacted_vacs = compact(vacancies);
+    const chunked_vacancies = chunk(compacted_vacs, 100);
+    for (const chunkItem of chunked_vacancies) {
+      try {
+        spinner.text = `сохранение вакансий в базу данных... ${i}/${chunked_vacancies.length}`;
+        await insertVacancies(connection, chunkItem);
+      } catch (e) {
+        spinner.fail("произошла ошибка");
+        console.error(e);
+        console.error("чанк, приведший к ошибке:", chunkItem);
+        break;
+      }
+      i++;
+    }
+  }, "сохранение вакансий в базу данных...");
+
+  spinner.info(
+    `поиск вакансий закончен, всего найдено: ${await countVacancies()}`
+  );
+
   spinner.stop();
 
   return vacancies;
 };
 
+/**
+ * скачивает по ссылкам отдельных вакансий их полную версию
+ * * полная версия вакансий содержит расширенную информацию о вакансии, например, список тегов
+ * @param urls массив ссылок к отдельным вакансиям
+ * @returns массив полных вакансий
+ */
 export const getFullVacancies = async (
   urls: string[]
 ): Promise<API.FullVacancy[]> => {
@@ -64,98 +113,12 @@ export const getFullVacancies = async (
   return full_vacancies;
 };
 
-export const getURLsFromClusters = async (clusters: API.FormattedClusters) => {  
-  const [small_area_clusters, big_area_clusters] = partition(
-    clusters?.area?.items ?? clusters.metro?.items,
-    (cluster) => cluster.count <= 2000
-  );
-
-  const branched_big_cluster = await branchVacanciesFromDeepCluster(
-    big_area_clusters
-  );
-
-  const paginated_urls_from_big_clusters = paginateClusters(
-    branched_big_cluster
-  );
-
-  const paginated_urls_from_small_clusters = paginateClusters(
-    small_area_clusters
-  );
-
-  return [
-    ...paginated_urls_from_big_clusters,
-    ...paginated_urls_from_small_clusters,
-  ];
-};
-
 /**
- * для разделения (ветвления) крупных кластеров на более чем 2000 элементов на
- * меньшие ветвления с суммарным количеством элементов ниже или равным 2000
- * @param cluster_items - кластеры вакансий
+ * скачивает вакансии по массиву ссылок
+ * TODO: переименовать, типа fetchVacancies
+ * @param urls массив ссылок к спискам вакансий
+ * @returns массив вакансий
  */
-export const branchVacanciesFromDeepCluster = async (
-  cluster_items: API.ClusterItem[]
-): Promise<API.ParseItem[]> => {
-  const urls = cluster_items.map((item) => item.url);
-
-  const clusters: Promise<API.Cluster[]>[] = urls.map((url) =>
-    fetch(url, {
-      headers: hh_headers,
-    })
-      .then((res) => res.json() as Promise<API.Response>)
-      .then((res) => res.clusters)
-  );
-
-  const parse_items = ([] as API.ParseItem[]).concat(
-    ...(await Promise.all(clusters)).map((clusters) => {
-      const formatted_clusters = formatClusters(clusters);
-      const urls: any[] = [];
-      if (formatted_clusters.metro !== undefined) {
-        formatted_clusters.metro.items.forEach(async (item) => {
-          urls.push({
-            count: item.count,
-            url: item.url,
-            name: item.metro_line?.area.name + " " + item.name,
-          });
-          // if (item.count > 2000) {
-          //   const branched_metro_cluster = await branchMetroCluster(item);
-          //   console.log("LOL:", branched_metro_cluster.length)
-          //   branched_metro_cluster.forEach((station) => {
-          //     urls.push({
-          //       count: station.count,
-          //       url: station.url,
-          //       name: station.name,
-          //     });
-          //   });
-          // } else {
-          //   console.log("count:", item.count)
-
-          //   urls.push({
-          //     count: item.count,
-          //     url: item.url,
-          //     name: item.metro_line?.area.name + " " + item.name,
-          //   });
-          // }
-        });
-      }
-      return urls;
-    })
-  );
-
-  return parse_items;
-};
-
-const branchMetroCluster = async (item: API.MetroClusterItem) => {
-  const stations = await fetch(item.url, {
-    headers: hh_headers,
-  })
-    .then((res) => res.json() as Promise<API.Response>)
-    .then((res) => formatClusters(res.clusters))
-    .then((clusters) => clusters.metro?.items ?? []);
-
-  return stations;
-};
-
 export const getVacanciesFromURLs = async (
   urls: string[]
 ): Promise<API.Vacancy[]> => {
@@ -175,6 +138,12 @@ export const getVacanciesFromURLs = async (
   return vacancies;
 };
 
+/**
+ * скачивает полные вакансии по массиву ссылок
+ * TODO: переименовать типа fetchFulLVacancies
+ * @param urls массив к отдельным вакансиям
+ * @returns массив полных вакансий
+ */
 export const getFullVacanciesFromURLs = async (
   urls: string[]
 ): Promise<API.FullVacancy[]> => {

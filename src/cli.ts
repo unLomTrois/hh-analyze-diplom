@@ -1,10 +1,14 @@
-import { Command } from "commander";
-import { getArea, getFromLog } from "./utils";
+import commander, { Command } from "commander";
+import { getArea, getFromLog, saveToFile } from "./utils";
 import { API } from "./types/api/module";
-import { getFull, search, prepare } from "./core/index.js";
+import { getFull, search, prepare, checkForUnique, quick } from "./core/index.js";
 import { analyze } from "./core/analyze";
 
-const getCLI = () => {
+/**
+ * инициализация CLI
+ * @returns cli instance
+ */
+const getCLI = (): commander.Command => {
   const cli = new Command();
 
   cli.name("node-hh-parser").version("1.0.0");
@@ -21,7 +25,9 @@ const getCLI = () => {
       "название территории поиска или индекс",
       "Россия"
     )
-    .option("-S, --silent", "не выводить информацию в консоль");
+    .option("-S, --silent", "не выводить информацию в консоль")
+    .option("-s, --save", "сохранить данные в файл")
+    .option("-m, --magic", "использовать умный поиск");
 
   // инициализация команд (операций)
   cli
@@ -33,10 +39,13 @@ const getCLI = () => {
       const raw_query: API.Query = {
         text: text,
         area: area,
+        // specialization: "1",
         clusters: true,
+        // industry: "7"
+        // no_magic: cli.opts().magic ?? false
       };
 
-      const data = search({ ...raw_query, text, area });
+      const data = search({ ...raw_query, area });
 
       if (cli.opts().all) {
         await data
@@ -54,12 +63,42 @@ const getCLI = () => {
     });
 
   cli
-    .command("get-full")
+    .command("quick")
+    .description("быстрый анализ рынка")
+    .action(async () => {
+      await quick()
+
+      // let urls = await getURLs(root_query, response.found, clusters);
+      // saveToFile(urls, "data", "urls1.json");
+    });
+
+  cli
+    .command("unique")
     .description("получает полное представление вакансий")
     .action(() => {
       const vacancies: API.Vacancy[] = getFromLog("data", "vacancies.json");
+      console.log("blya", vacancies.length)
 
-      getFull(vacancies);
+      checkForUnique(vacancies);
+    });
+
+  cli
+    .command("get-full")
+    .description("получает полное представление вакансий")
+    .action(async () => {
+      const vacancies: API.Vacancy[] = getFromLog("data", "vacancies.json");
+      const full_vacancies = await getFull(vacancies);
+      if (cli.opts().save) {
+        saveToFile(full_vacancies, "data", "full_vacancies.json");
+      }
+    });
+
+  cli
+    .command("prepare")
+    .description("подготовить полные вакансии для выдачи")
+    .action(async () => {
+      const full_vacancies = await getFromLog("data", "full_vacancies.json");
+      prepare(full_vacancies);
     });
 
   cli
