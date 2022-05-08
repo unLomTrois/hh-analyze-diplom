@@ -33,6 +33,8 @@ export const getURLsFromClusters = async (
     return paginateClusters(await deepBranch(clusters.employment.items));
   }
 
+  // fix errors
+
   // поделить кластера по регионам, где больше 2000 и где меньше
   const final_items: API.ClusterItem[] = [];
   let [less_2000_clusters, more_2000_clusters] = partition(

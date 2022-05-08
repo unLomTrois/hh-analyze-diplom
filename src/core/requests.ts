@@ -31,8 +31,8 @@ export const getVacancies = async (urls: string[]) => {
   const spinner = ora("подготовка").start();
   const vacancies: API.Vacancy[] = [];
 
-  spinner.info(`количество чанков: ${chunked_urls.length}`);
   spinner.info(`размер чанка: ${chunk_size}`);
+  spinner.info(`количество чанков: ${chunked_urls.length}`);
 
   const connection = getConnection();
   spinner.info("установка соединения с базой данных");
