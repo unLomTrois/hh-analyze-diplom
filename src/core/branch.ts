@@ -36,6 +36,17 @@ export const getURLs = async (
 };
 
 /**
+ * разделяет список кластеров на те, где count меньше 2000 и где больше
+ *
+ * @param {API.ClusterItem[]} items кластера
+ * @returns 2 списка, в первом все кластера со значением count меньшим 2000, во втором с большим
+ */
+const splitItemsBy2000 = (
+  items: API.ClusterItem[]
+): [API.ClusterItem[], API.ClusterItem[]] =>
+  partition(items, (item) => item.count <= 2000);
+
+/**
  * разбиение кластеров для получения массива ссылок
  * * если поиск идёт по целой стране, региону, то в кластерах будет кластер "area"
  * * если же его нет, то делить запрос на регионы не требуется
@@ -52,9 +63,8 @@ export const getURLsFromClusters = async (
 
   // поделить кластера по регионам, где больше 2000 и где меньше
   const final_items: API.ClusterItem[] = [];
-  let [less_2000_clusters, more_2000_clusters] = partition(
-    clusters.area.items,
-    (cluster_item) => cluster_item.count <= 2000
+  let [less_2000_clusters, more_2000_clusters] = splitItemsBy2000(
+    clusters.area.items
   );
   final_items.push(...less_2000_clusters);
   console.log(
@@ -72,7 +82,7 @@ export const getURLsFromClusters = async (
     )
   ).flat();
 
-  final_items.push(...branched_clusters)
+  final_items.push(...branched_clusters);
 
   const final_count = final_items.reduce((acc, cur) => {
     return (acc += cur.count);
@@ -98,19 +108,16 @@ const deepBranch = async (
 
   await oraPromise(async () => {
     const branched_by_employment = await branchByEmployment(cluster_items);
-    [less_2000_clusters, more_2000_clusters] = partition(
-      branched_by_employment,
-      (cluster_item) => cluster_item.count <= 2000
+    [less_2000_clusters, more_2000_clusters] = splitItemsBy2000(
+      branched_by_employment
     );
     final_items.push(...less_2000_clusters);
   }, "ветвление по типу занятости...");
 
   await oraPromise(async () => {
     const branched_by_schedule = await branchBySchedule(more_2000_clusters);
-    [less_2000_clusters, more_2000_clusters] = partition(
-      branched_by_schedule,
-      (cluster_item) => cluster_item.count <= 2000
-    );
+    [less_2000_clusters, more_2000_clusters] =
+      splitItemsBy2000(branched_by_schedule);
     final_items.push(...less_2000_clusters);
   }, "ветвление графику работы...");
 
@@ -118,19 +125,16 @@ const deepBranch = async (
     const branched_by_professional_role = await branchByProfessionalRole(
       more_2000_clusters
     );
-    [less_2000_clusters, more_2000_clusters] = partition(
-      branched_by_professional_role,
-      (cluster_item) => cluster_item.count <= 2000
+    [less_2000_clusters, more_2000_clusters] = splitItemsBy2000(
+      branched_by_professional_role
     );
     final_items.push(...less_2000_clusters);
   }, "ветвление по проф.роли...");
 
   await oraPromise(async () => {
     const branched_by_industry = await branchByIndustry(more_2000_clusters);
-    [less_2000_clusters, more_2000_clusters] = partition(
-      branched_by_industry,
-      (cluster_item) => cluster_item.count <= 2000
-    );
+    [less_2000_clusters, more_2000_clusters] =
+      splitItemsBy2000(branched_by_industry);
     final_items.push(...less_2000_clusters);
   }, "ветвление по отрасли компаний...");
 
@@ -140,10 +144,8 @@ const deepBranch = async (
 const branchByEmployment = async (
   cluster_items: API.ClusterItem[]
 ): Promise<API.ClusterItem[]> => {
-  const [less_2000_clusters, more_2000_clusters] = partition(
-    cluster_items,
-    (cluster_item) => cluster_item.count <= 2000
-  );
+  const [less_2000_clusters, more_2000_clusters] =
+    splitItemsBy2000(cluster_items);
 
   // branching more_2000_clusters
   const urls = more_2000_clusters.map((item) => item.url);
