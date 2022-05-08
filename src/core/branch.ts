@@ -2,7 +2,12 @@ import { partition } from "lodash-es";
 import fetch from "node-fetch";
 import ora, { oraPromise } from "ora";
 import { API } from "../types/api/module";
-import { formatClusters, paginateClusters, paginateLink } from "../utils";
+import {
+  formatClusters,
+  paginateClusters,
+  paginateLink,
+  saveToFile,
+} from "../utils";
 import { hh_headers } from "./requests";
 
 /**
@@ -45,8 +50,6 @@ export const getURLsFromClusters = async (
     return paginateClusters(await deepBranch(clusters.employment.items));
   }
 
-  // fix errors
-
   // поделить кластера по регионам, где больше 2000 и где меньше
   const final_items: API.ClusterItem[] = [];
   let [less_2000_clusters, more_2000_clusters] = partition(
@@ -61,15 +64,15 @@ export const getURLsFromClusters = async (
     }, 0)
   );
 
-  // const branched = more_2000_clusters.map(async(cluster) => {
-  //   return deepBranch(cluster)
-  // })
-  const branched1 = await deepBranch([more_2000_clusters[0]]);
-  const branched2 = await deepBranch([more_2000_clusters[1]]);
-  const branched3 = await deepBranch([more_2000_clusters[2]]);
-  final_items.push(...branched1);
-  final_items.push(...branched2);
-  final_items.push(...branched3);
+  const branched_clusters = (
+    await Promise.all(
+      more_2000_clusters.map(async (cluster) => {
+        return deepBranch([cluster]);
+      })
+    )
+  ).flat();
+
+  final_items.push(...branched_clusters)
 
   const final_count = final_items.reduce((acc, cur) => {
     return (acc += cur.count);
