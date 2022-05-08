@@ -1,10 +1,8 @@
 import { Command } from "commander";
-import { buildRootURL, formatClusters, getArea, getFromLog, saveToFile } from "./utils";
+import { getArea, getFromLog, saveToFile } from "./utils";
 import { API } from "./types/api/module";
 import { getFull, search, prepare, checkForUnique, quick } from "./core/index.js";
 import { analyze } from "./core/analyze";
-import { getURLs } from "./core/branch";
-import { getVacanciesInfo } from "./core/requests";
 
 const getCLI = () => {
   const cli = new Command();

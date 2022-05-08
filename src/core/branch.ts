@@ -6,7 +6,6 @@ import {
   formatClusters,
   paginateClusters,
   paginateLink,
-  saveToFile,
 } from "../utils";
 import { hh_headers } from "./requests";
 

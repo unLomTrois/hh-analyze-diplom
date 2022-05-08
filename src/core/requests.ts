@@ -1,10 +1,9 @@
-import { Spinner } from "cli-spinner";
 import { chunk, compact } from "lodash-es";
 import fetch from "node-fetch";
-import { getConnection, getRepository } from "typeorm";
+import { getConnection } from "typeorm";
 import { countVacancies, insertVacancies } from "../db";
 import { API } from "../types/api/module";
-import { fetchCache, formatClusters } from "../utils";
+import { fetchCache } from "../utils";
 
 import ora, { oraPromise } from "ora";
 

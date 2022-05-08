@@ -3,7 +3,7 @@ import ora, { oraPromise } from "ora";
 import { getConnection } from "typeorm";
 import { Vacancy } from "../entity/Vacancy.js";
 import { API } from "../types/api/module.js";
-import { buildRootURL, formatClusters, getFromLog, saveToFile } from "../utils";
+import { buildRootURL, formatClusters, saveToFile } from "../utils";
 import { getURLs } from "./branch.js";
 import {
   getFullVacancies,
