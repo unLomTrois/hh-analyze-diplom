@@ -39,8 +39,6 @@ export const formatClusters = (
   clusters: API.Cluster[],
   found?: number
 ): API.FormattedClusters => {
-  console.log(clusters)
-
   return { ...convertArrayToObject(clusters, "id"), found };
 };
 
