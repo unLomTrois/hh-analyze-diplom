@@ -1,4 +1,5 @@
 import { Connection, getRepository, Raw, Repository } from "typeorm";
+import { FullVacancy } from "../entity/FullVacancy.js";
 import { Vacancy } from "../entity/Vacancy.js";
 import { API } from "../types/api/module.js";
 
@@ -32,6 +33,36 @@ export const insertVacancies = async (
     .execute();
 };
 
+/**
+ * вставка в базу данных массива вакансий
+ * @param connection соединение с базой данных
+ * @param vacancies массив вакансий
+ */
+export const insertFullVacancies = async (
+  connection: Connection,
+  vacancies: any[]
+) => {
+  await connection
+    .createQueryBuilder()
+    .insert()
+    .into(FullVacancy)
+    .values(vacancies)
+    .orIgnore(true)
+    .execute();
+};
+
+/**
+ * вставка в базу данных массива вакансий
+ * @param connection соединение с базой данных
+ * @param vacancies массив вакансий
+ */
+export const insrtFullVacancy = async (
+  connection: Connection,
+  vacancy: any
+) => {
+  await connection.getRepository(FullVacancy).insert(vacancy);
+};
+
 export const selectVacancies = async () => {
   const repository = getRepository(Vacancy);
 
@@ -48,20 +79,42 @@ export const selectVacanciesURLs = async () => {
     where: [
       // { published_at: Raw((alias) => `${alias} >= :date`, { date: "2022-04-01" }) },
       {
-        published_at: Raw((alias) => `${alias} <= :date`, {
+        published_at: Raw((alias) => `${alias} >= :date`, {
           date: "2022-05-01",
         }),
       },
     ],
+    take: 5000,
   });
 
   return urls.map((url_json) => url_json.url);
 };
 
-export const existsVacancy = async (connection: Connection, id: number | string) => {
-  const res: {exists: boolean}[] = await connection.query(
+export const existsVacancy = async (
+  connection: Connection,
+  id: number | string
+) => {
+  const res: { exists: boolean }[] = await connection.query(
     `select exists(select * from vacancy where vacancy.id = '${id}');`
   );
 
-  return res[0].exists
+  return res[0].exists;
+};
+
+export const existsFullVacancy = async (
+  connection: Connection,
+  id: number | string
+): Promise<boolean> => {
+  const res: { exists: boolean }[] = await connection.query(
+    `select exists(select * from full_vacancy where full_vacancy.id = '${id}');`
+  );
+
+  return res[0].exists;
+};
+
+export const selectFullVacancy = async (
+  connection: Connection,
+  id: number | string
+) => {
+  return await connection.getRepository(FullVacancy).findOne(id);
 };

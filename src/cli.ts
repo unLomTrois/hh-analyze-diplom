@@ -9,10 +9,19 @@ import {
   quick,
 } from "./core/index.js";
 import { analyze } from "./core/analyze";
-import { existsVacancy, selectVacancies, selectVacanciesURLs } from "./db";
-import ora from "ora";
-import { getConnection, getRepository } from "typeorm";
+import {
+  existsVacancy,
+  insertFullVacancies,
+  selectVacancies,
+  selectVacanciesURLs,
+} from "./db";
+import ora, { oraPromise } from "ora";
+import { Connection, getConnection, getRepository } from "typeorm";
 import { Vacancy } from "./entity/Vacancy";
+import { FullVacancy } from "./entity/FullVacancy";
+import fetch from "node-fetch";
+import { smart_fetch } from "./core/smartfetch";
+import { chunk, compact } from "lodash-es";
 
 /**
  * инициализация CLI
@@ -25,10 +34,7 @@ const getCLI = (): commander.Command => {
 
   // инициализация полей (опций)
   cli
-    .option(
-      "-A, --all",
-      "выполнить все остальные комманды автоматически"
-    )
+    .option("-A, --all", "выполнить все остальные комманды автоматически")
     .option(
       "-a, --area <area-name>",
       "название территории поиска или индекс",
@@ -50,7 +56,7 @@ const getCLI = (): commander.Command => {
         area: area,
         specialization: "1",
         clusters: true,
-        industry: "7"
+        industry: "7",
         // no_magic: cli.opts().magic ?? false
       };
 
@@ -82,27 +88,36 @@ const getCLI = (): commander.Command => {
     });
 
   cli
-    .command("check")
+    .command("full")
     .description("получает полное представление вакансий")
     .action(async () => {
       const connection = getConnection();
+      const urls = await selectVacanciesURLs();
 
-      existsVacancy(connection, 55520538).then(res => console.log(res))
+      const full_arr = [];
 
+      const chunks = chunk(urls, 100);
 
-      // const vacancies = await selectVacancies()
-      // const urls = await selectVacanciesURLs()
+      const asyncfetch = async (urls: string[]) => {
+        const data = urls.map((url) => smart_fetch(connection, url));
 
-      // ora().info(`vacancies count ${vacancies.length}`)
-      // ora().info(`urls count ${urls.length}`)
+        const full_vacancies: FullVacancy[] = await Promise.all(data);
 
-      // saveToFile(vacancies, "data", "vacanciesvacancies.json", 2, false);
-      // saveToFile(urls, "data", "urlsurls.json", 2, false);
+        return full_vacancies;
+      };
 
-      // getFromLog("data", "vacancies.json");
-      // console.log("blya", vacancies.length);
+      await oraPromise(async (spinner) => {
+        // let i = 1;
+        for (const chunk of chunks) {
+          spinner.text = `скачивание полных вакансий... ${full_arr.length}/${urls.length}`;
 
-      // checkForUnique(vacancies);
+          const full_vacancies = await asyncfetch(chunk);
+
+          full_arr.push(...full_vacancies);
+
+          // i++;
+        }
+      }, "скачивание полных вакансий...");
     });
 
   cli
