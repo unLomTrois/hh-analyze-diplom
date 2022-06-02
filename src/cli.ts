@@ -9,6 +9,10 @@ import {
   quick,
 } from "./core/index.js";
 import { analyze } from "./core/analyze";
+import { existsVacancy, selectVacancies, selectVacanciesURLs } from "./db";
+import ora from "ora";
+import { getConnection, getRepository } from "typeorm";
+import { Vacancy } from "./entity/Vacancy";
 
 /**
  * инициализация CLI
@@ -46,7 +50,7 @@ const getCLI = (): commander.Command => {
         area: area,
         specialization: "1",
         clusters: true,
-        // industry: "7"
+        industry: "7"
         // no_magic: cli.opts().magic ?? false
       };
 
@@ -77,15 +81,29 @@ const getCLI = (): commander.Command => {
       // saveToFile(urls, "data", "urls1.json");
     });
 
-  // cli
-  //   .command("unique")
-  //   .description("получает полное представление вакансий")
-  //   .action(() => {
-  //     const vacancies: API.Vacancy[] = getFromLog("data", "vacancies.json");
-  //     console.log("blya", vacancies.length);
+  cli
+    .command("check")
+    .description("получает полное представление вакансий")
+    .action(async () => {
+      const connection = getConnection();
 
-  //     checkForUnique(vacancies);
-  //   });
+      existsVacancy(connection, 55520538).then(res => console.log(res))
+
+
+      // const vacancies = await selectVacancies()
+      // const urls = await selectVacanciesURLs()
+
+      // ora().info(`vacancies count ${vacancies.length}`)
+      // ora().info(`urls count ${urls.length}`)
+
+      // saveToFile(vacancies, "data", "vacanciesvacancies.json", 2, false);
+      // saveToFile(urls, "data", "urlsurls.json", 2, false);
+
+      // getFromLog("data", "vacancies.json");
+      // console.log("blya", vacancies.length);
+
+      // checkForUnique(vacancies);
+    });
 
   cli
     .command("get-full")
