@@ -4,6 +4,7 @@ import { getConnection } from "typeorm";
 import { Vacancy } from "../entity/Vacancy.js";
 import { API } from "../types/api/module.js";
 import { buildRootURL, formatClusters, saveToFile } from "../utils";
+import { analyzeSalaryCluster } from "./analyze.js";
 import { getURLs } from "./branch.js";
 import {
   getFullVacancies,
@@ -92,11 +93,18 @@ export const quick = async () => {
     items: await Promise.all(
       clusters.professional_role.items.map(async (item) => {
         const response: API.Response = await getVacanciesInfo(item.url);
-        const clusters: API.FormattedClusters = formatClusters(
-          response.clusters,
-          response.found
-        );
-        return { ...item, salary: clusters.salary };
+        try {
+          const clusters: API.FormattedClusters = formatClusters(
+            response.clusters,
+            response.found
+          );
+          return {
+            ...item,
+            salary: analyzeSalaryCluster(clusters.salary, clusters.found),
+          };
+        } catch (error) {
+          // console.error(response)
+        }
       })
     ),
   };
@@ -142,7 +150,9 @@ export const checkForUnique = async (vacancies: API.Vacancy[]) => {
  * @param vacancies массив вакансий
  * @returns массив полных вакангсий
  */
-export const getFull = async (vacancies: API.Vacancy[]): Promise<API.FullVacancy[]> => {
+export const getFull = async (
+  vacancies: API.Vacancy[]
+): Promise<API.FullVacancy[]> => {
   console.log("парсинг полных вакансий");
 
   const full_vacancies_urls = vacancies
@@ -170,7 +180,9 @@ export const getFull = async (vacancies: API.Vacancy[]): Promise<API.FullVacancy
  * @param full_vacancies массив полных вакансий
  * @returns массив приготовленных вакансий
  */
-export const prepare = async (full_vacancies: API.FullVacancy[]): Promise<API.PreparedVacancy[]> => {
+export const prepare = async (
+  full_vacancies: API.FullVacancy[]
+): Promise<API.PreparedVacancy[]> => {
   // нам важны поля key_skills
   const prepared_vacancies: API.PreparedVacancy[] = full_vacancies.map(
     (vac: API.FullVacancy) => {

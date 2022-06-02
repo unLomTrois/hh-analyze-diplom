@@ -55,7 +55,7 @@ const analyzeSimpleCluster = (simple_cluster: API.Cluster, found: number) => {
   return groups;
 };
 
-const analyzeSalaryCluster = (salary_cluster: API.Cluster, found: number) => {
+export const analyzeSalaryCluster = (salary_cluster: API.Cluster, found: number) => {
   // количество вакансий с указанной зп
   const specified: number =
     salary_cluster.items.find((item) => item.name === "Указан")?.count ?? 0;

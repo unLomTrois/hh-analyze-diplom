@@ -8,7 +8,7 @@ import { fetchCache } from "../utils";
 import ora, { oraPromise } from "ora";
 
 export const hh_headers = {
-  "User-Agent": "labor-market-analyzer (vadim.kuz02@gmail.com)",
+  "User-Agent": "amazing",
 };
 
 /**
@@ -52,7 +52,7 @@ export const getVacancies = async (urls: string[]): Promise<API.Vacancy[]> => {
     for (const urls_chunk of chunked_urls) {
       spinner.text = `скачивание вакансий... ${i}/${chunked_urls.length}`;
 
-      const vacs_from_chunk = await getVacanciesFromURLs(urls_chunk);
+      const vacs_from_chunk = await fetchVacancies(urls_chunk);
 
       vacancies.push(...vacs_from_chunk);
 
@@ -119,7 +119,7 @@ export const getFullVacancies = async (
  * @param urls массив ссылок к спискам вакансий
  * @returns массив вакансий
  */
-export const getVacanciesFromURLs = async (
+export const fetchVacancies = async (
   urls: string[]
 ): Promise<API.Vacancy[]> => {
   const data: Promise<API.Response>[] = urls.map((url) =>
@@ -127,14 +127,11 @@ export const getVacanciesFromURLs = async (
       headers: hh_headers,
     }).then((res) => res.json())
   );
-
-  // дождаться резолва промисов, получить их поля items
   const vacancies: API.Vacancy[] = ([] as API.Vacancy[]).concat(
     ...(await Promise.all(data)).map((page) => {
       return page.items;
     })
   );
-
   return vacancies;
 };
 

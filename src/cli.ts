@@ -1,7 +1,13 @@
 import commander, { Command } from "commander";
 import { getArea, getFromLog, saveToFile } from "./utils";
 import { API } from "./types/api/module";
-import { getFull, search, prepare, checkForUnique, quick } from "./core/index.js";
+import {
+  getFull,
+  search,
+  prepare,
+  checkForUnique,
+  quick,
+} from "./core/index.js";
 import { analyze } from "./core/analyze";
 
 /**
@@ -17,8 +23,7 @@ const getCLI = (): commander.Command => {
   cli
     .option(
       "-A, --all",
-      "выполнить все остальные комманды автоматически",
-      "Россия"
+      "выполнить все остальные комманды автоматически"
     )
     .option(
       "-a, --area <area-name>",
@@ -37,9 +42,9 @@ const getCLI = (): commander.Command => {
       const area = await getArea(cli.opts().area);
 
       const raw_query: API.Query = {
-        text: text,
+        // text: text,
         area: area,
-        // specialization: "1",
+        specialization: "1",
         clusters: true,
         // industry: "7"
         // no_magic: cli.opts().magic ?? false
@@ -66,21 +71,21 @@ const getCLI = (): commander.Command => {
     .command("quick")
     .description("быстрый анализ рынка")
     .action(async () => {
-      await quick()
+      await quick();
 
       // let urls = await getURLs(root_query, response.found, clusters);
       // saveToFile(urls, "data", "urls1.json");
     });
 
-  cli
-    .command("unique")
-    .description("получает полное представление вакансий")
-    .action(() => {
-      const vacancies: API.Vacancy[] = getFromLog("data", "vacancies.json");
-      console.log("blya", vacancies.length)
+  // cli
+  //   .command("unique")
+  //   .description("получает полное представление вакансий")
+  //   .action(() => {
+  //     const vacancies: API.Vacancy[] = getFromLog("data", "vacancies.json");
+  //     console.log("blya", vacancies.length);
 
-      checkForUnique(vacancies);
-    });
+  //     checkForUnique(vacancies);
+  //   });
 
   cli
     .command("get-full")
