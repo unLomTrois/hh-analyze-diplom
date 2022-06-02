@@ -87,26 +87,41 @@ export const quick = async () => {
     response.found
   );
 
+  const clusters_data = clusters.professional_role.items.map(async (item) => {
+    const response: API.Response = await getVacanciesInfo(item.url);
+    try {
+      const clusters: API.FormattedClusters = formatClusters(
+        response.clusters,
+        response.found
+      );
+      return {
+        ...item,
+        salary: analyzeSalaryCluster(clusters.salary, clusters.found),
+      };
+    } catch (error) {
+      // console.error(response)
+    }
+  })
+
+  const items = []
+
+  await oraPromise(async (spinner) => {
+    let i = 1;
+    for (const cluster_data of clusters_data) {
+      spinner.text = `скачивание вакансий... ${i}/${clusters_data.length}`;
+
+      const data = await cluster_data;
+
+      items.push(data);
+
+      i++;
+    }
+  }, "скачивание вакансий...");
+
   const nested_clusters = {
     count: response.found,
     ...clusters.professional_role,
-    items: await Promise.all(
-      clusters.professional_role.items.map(async (item) => {
-        const response: API.Response = await getVacanciesInfo(item.url);
-        try {
-          const clusters: API.FormattedClusters = formatClusters(
-            response.clusters,
-            response.found
-          );
-          return {
-            ...item,
-            salary: analyzeSalaryCluster(clusters.salary, clusters.found),
-          };
-        } catch (error) {
-          // console.error(response)
-        }
-      })
-    ),
+    items,
   };
 
   saveToFile(nested_clusters, "data", "nested.json", 2, false);

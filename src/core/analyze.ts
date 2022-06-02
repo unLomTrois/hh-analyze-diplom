@@ -107,7 +107,7 @@ export const analyzeSalaryCluster = (salary_cluster: API.Cluster, found: number)
     return (acc += d.from * d.count);
   }, 0);
 
-  console.log(mean_salary);
+  // console.log(mean_salary);
 
   // результат
   return {
