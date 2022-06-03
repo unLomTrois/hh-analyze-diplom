@@ -101,7 +101,6 @@ const deepBranch = async (
   cluster_items: API.ClusterItem[]
 ): Promise<API.ClusterItem[]> => {
   ora().info("начало ветвления...");
-
   const final_items: API.ClusterItem[] = [];
 
   let [less_2000_clusters, more_2000_clusters] = [[], []];

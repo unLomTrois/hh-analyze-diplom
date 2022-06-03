@@ -1,4 +1,4 @@
-import { Connection, getRepository, Raw, Repository } from "typeorm";
+import { Connection, getRepository, Not, Raw, Repository } from "typeorm";
 import { FullVacancy } from "../entity/FullVacancy.js";
 import { Vacancy } from "../entity/Vacancy.js";
 import { API } from "../types/api/module.js";
@@ -117,4 +117,17 @@ export const selectFullVacancy = async (
   id: number | string
 ) => {
   return await connection.getRepository(FullVacancy).findOne(id);
+};
+
+export const selectKeySkills = async (connection: Connection) => {
+  const keyskills: { key_skills: { name: string }[] }[] = await connection
+    .getRepository(FullVacancy)
+    .find({
+      select: ["key_skills"],
+      where: {
+        key_skills: Not("[]"),
+      },
+    });
+
+  return keyskills.flatMap(skill => skill.key_skills);
 };

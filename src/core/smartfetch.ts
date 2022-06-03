@@ -20,12 +20,9 @@ export const smart_fetch = async (
 ): Promise<FullVacancy> => {
   const id = getIDfromURL(url);
   const isInDB = await existsFullVacancy(connection, id);
-
   if (isInDB) {
-    // ora().info("already in db")
     return selectFullVacancy(connection, id);
   }
-
   // make new fetch and get json
   const vacancy: FullVacancy = await fetch(url, { headers: hh_headers })
     .then((res) => res.json())
@@ -36,7 +33,7 @@ export const smart_fetch = async (
   try {
     await insrtFullVacancy(connection, vacancy);
   } catch (error) {
-    ora().fail(JSON.stringify(vacancy));
+    ora().fail(JSON.stringify(url));
   }
 
   return vacancy;

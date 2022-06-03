@@ -5,23 +5,15 @@ import {
   getFull,
   search,
   prepare,
-  checkForUnique,
   quick,
 } from "./core/index.js";
 import { analyze } from "./core/analyze";
 import {
-  existsVacancy,
-  insertFullVacancies,
-  selectVacancies,
-  selectVacanciesURLs,
+  selectKeySkills,
 } from "./db";
-import ora, { oraPromise } from "ora";
-import { Connection, getConnection, getRepository } from "typeorm";
-import { Vacancy } from "./entity/Vacancy";
-import { FullVacancy } from "./entity/FullVacancy";
-import fetch from "node-fetch";
-import { smart_fetch } from "./core/smartfetch";
-import { chunk, compact } from "lodash-es";
+import ora from "ora";
+import { getConnection } from "typeorm";
+import { search_full } from "./core/search_full";
 
 /**
  * инициализация CLI
@@ -91,44 +83,7 @@ const getCLI = (): commander.Command => {
     .command("full")
     .description("получает полное представление вакансий")
     .action(async () => {
-      const connection = getConnection();
-      const urls = await selectVacanciesURLs();
-
-      const full_arr = [];
-
-      const chunks = chunk(urls, 100);
-
-      const asyncfetch = async (urls: string[]) => {
-        const data = urls.map((url) => smart_fetch(connection, url));
-
-        const full_vacancies: FullVacancy[] = await Promise.all(data);
-
-        return full_vacancies;
-      };
-
-      await oraPromise(async (spinner) => {
-        // let i = 1;
-        for (const chunk of chunks) {
-          spinner.text = `скачивание полных вакансий... ${full_arr.length}/${urls.length}`;
-
-          const full_vacancies = await asyncfetch(chunk);
-
-          full_arr.push(...full_vacancies);
-
-          // i++;
-        }
-      }, "скачивание полных вакансий...");
-    });
-
-  cli
-    .command("get-full")
-    .description("получает полное представление вакансий")
-    .action(async () => {
-      const vacancies: API.Vacancy[] = getFromLog("data", "vacancies.json");
-      const full_vacancies = await getFull(vacancies);
-      if (cli.opts().save) {
-        saveToFile(full_vacancies, "data", "full_vacancies.json");
-      }
+      await search_full();
     });
 
   cli
@@ -142,20 +97,68 @@ const getCLI = (): commander.Command => {
   cli
     .command("analyze")
     .description("проанализировать полученные данные")
-    .action(() => {
-      const prepared_vacancies: API.FullVacancy[] = getFromLog(
-        "data",
-        "prepared_vacancies.json"
-      );
-      const clusters: API.FormattedClusters = getFromLog(
-        "data",
-        "clusters.json"
+    .action(async () => {
+      const connection = getConnection();
+      const keyskills = await selectKeySkills(connection);
+
+      ora().info(`${keyskills.length}`);
+
+      const lol = kek(
+        keyskills.map((skill) => skill.name),
+        19745
       );
 
-      analyze(prepared_vacancies, clusters);
+      saveToFile(lol, "data", "lol.json");
+
+      // const prepared_vacancies: API.FullVacancy[] = getFromLog(
+      //   "data",
+      //   "prepared_vacancies.json"
+      // );
+      // const clusters: API.FormattedClusters = getFromLog(
+      //   "data",
+      //   "clusters.json"
+      // );
+
+      // analyze(prepared_vacancies, clusters);
     });
 
   return cli;
+};
+
+const kek = (key_skills: string[], vacancies_with_keyskills) => {
+  const result: any = {};
+  key_skills.forEach((skill) => {
+    result[skill] = (result[skill] || 0) + 1;
+  });
+
+  const result_ents = Object.entries<number>(result);
+  saveToFile(result, "data", "result.json");
+
+  console.log("уникальные навыки:", result_ents.length);
+
+  const rated_skills = result_ents
+    .map((arr) => {
+      return {
+        name: arr[0],
+        count: arr[1],
+        ratio_to_vacancies: parseFloat(
+          (arr[1] / vacancies_with_keyskills).toFixed(3)
+        ),
+        ratio_to_key_skills: parseFloat(
+          (arr[1] / key_skills.length).toFixed(3)
+        ),
+      };
+    })
+    .filter((skill) => skill.ratio_to_vacancies >= 0.001)
+    .sort((skill_1, skill_2) =>
+      skill_1.count < skill_2.count ? 1 : skill_2.count < skill_1.count ? -1 : 0
+    );
+
+  return {
+    vacancies_with_keyskills,
+    key_skills: rated_skills,
+    key_skills_count: key_skills.length,
+  };
 };
 
 export default getCLI;
