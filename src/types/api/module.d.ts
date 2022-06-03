@@ -250,7 +250,6 @@ export namespace API {
       gross?: boolean;
     };
     response_letter_required: boolean;
-    accept_incomplete_resumes: boolean;
     accept_temporary: boolean;
   }
 

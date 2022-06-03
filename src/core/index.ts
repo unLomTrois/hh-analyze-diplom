@@ -4,7 +4,7 @@ import { getConnection } from "typeorm";
 import { Vacancy } from "../entity/Vacancy.js";
 import { API } from "../types/api/module.js";
 import { buildRootURL, formatClusters, saveToFile } from "../utils";
-import { analyzeSalaryCluster } from "./analyze.js";
+import { analyzeSalaryCluster } from "./analyze/clusters.js";
 import { getURLs } from "./branch.js";
 import {
   getFullVacancies,

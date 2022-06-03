@@ -112,6 +112,14 @@ export const existsFullVacancy = async (
   return res[0].exists;
 };
 
+export const selectFullVacancies = async () => {
+  const repository = getRepository(FullVacancy);
+
+  const vacancies = await repository.find();
+
+  return vacancies;
+};
+
 export const selectFullVacancy = async (
   connection: Connection,
   id: number | string
@@ -129,5 +137,17 @@ export const selectKeySkills = async (connection: Connection) => {
       },
     });
 
-  return keyskills.flatMap(skill => skill.key_skills);
+  return keyskills
+    .flatMap((skill) => skill.key_skills)
+    .map((skill) => skill.name);
+};
+
+export const countVacanciesWithKeyskills = async (
+  connection: Connection
+): Promise<number> => {
+  const res = await connection.query(
+    "select count(full_vacancy.key_skills) from full_vacancy where full_vacancy.key_skills != '[]'"
+  );
+
+  return res[0].count;
 };
