@@ -1,7 +1,9 @@
+import { toInteger } from "lodash-es";
 import { Connection, getRepository, Not, Raw, Repository } from "typeorm";
 import { FullVacancy } from "../entity/FullVacancy.js";
 import { Vacancy } from "../entity/Vacancy.js";
 import { API } from "../types/api/module.js";
+import { rate_keyskills } from "./sql/rate_keyskills.js";
 
 /**
  * подсчитывает итоговое количество вакансий в базе данных
@@ -142,6 +144,25 @@ export const selectKeySkills = async (connection: Connection) => {
     .map((skill) => skill.name);
 };
 
+
+/**
+ * получает из базы группированный список всех ключевых навыков
+ *
+ */
+export const selectRatedKeyskills = async (
+  connection: Connection,
+): Promise<{ name: string; count: number }[]> => {
+  const data: { name: string; count: string }[] =
+    await connection.manager.query(rate_keyskills);
+
+  return data.map((skill) => {
+    return {
+      ...skill,
+      count: toInteger(skill.count),
+    };
+  });
+};
+
 export const countVacanciesWithKeyskills = async (
   connection: Connection
 ): Promise<number> => {
@@ -149,5 +170,5 @@ export const countVacanciesWithKeyskills = async (
     "select count(full_vacancy.key_skills) from full_vacancy where full_vacancy.key_skills != '[]'"
   );
 
-  return res[0].count;
+  return toInteger(res[0].count);
 };

@@ -1,4 +1,5 @@
 import { resolve } from "node:path";
+import ora from "ora";
 import {
   countVacancies,
   selectFullVacancies,
@@ -11,22 +12,25 @@ import { analyzeClusters } from "./clusters";
 import { analyzeVacancies } from "./vacancies";
 
 export const analyze = async () => {
+
+  // обработка кластеров
+  ora().info("обработка кластеров...")
   const clusters = await getclusters();
-  const vacancies = await selectFullVacancies();
 
   // всего вакансий
   const found: number = clusters?.found ?? (await countVacancies());
 
+  const analyzed_clusters = analyzeClusters(clusters, found);
+  saveToFile(analyzed_clusters, "analyzed_data", "analyzed_clusters.json");
+
   // обработка вакансий
+  ora().info("обработка вакансий...")
+  const vacancies = await selectFullVacancies();
   const analyzed_vacancies = await analyzeVacancies(
     vacancies as API.PreparedVacancy[],
     found
   );
   saveToFile(analyzed_vacancies, "analyzed_data", "analyzed_vacancies.json");
-
-  // обработка кластеров
-  const analyzed_clusters = analyzeClusters(clusters, found);
-  saveToFile(analyzed_clusters, "analyzed_data", "analyzed_clusters.json");
 
   const analyzed_data = {
     vacancy_count: found,

@@ -1,7 +1,13 @@
 import ora from "ora";
 import { API } from "../../types/api/module";
+import { saveToFile } from "../../utils";
 
-export const analyzeClusters = (clusters: API.FormattedClusters, found: number) => {
+const MINIMUM_WAGE = 15_279
+
+export const analyzeClusters = (
+  clusters: API.FormattedClusters,
+  found: number
+) => {
   return {
     salary_info: analyzeSalaryCluster(clusters.salary, found),
     experience_info: analyzeExperienceCluster(clusters.experience, found),
@@ -30,9 +36,6 @@ export const analyzeSalaryCluster = (
   salary_cluster: API.Cluster,
   found: number
 ) => {
-
-  ora().info(JSON.stringify(salary_cluster, undefined, 2))
-
   // количество вакансий с указанной зп
   const specified: number =
     salary_cluster.items.find((item) => item.name === "Указан")?.count ?? 0;
@@ -67,7 +70,7 @@ export const analyzeSalaryCluster = (
     const interval_count = count;
 
     borders.unshift({
-      from: 20000, //полчаем число из фразы "от *число* руб."
+      from: MINIMUM_WAGE, //полчаем число из фразы "от *число* руб."
       count: count,
       interval_count,
       ratio: parseFloat((count / found).toFixed(2)),
@@ -78,13 +81,13 @@ export const analyzeSalaryCluster = (
     });
   })();
 
-  const mean_salary = borders.reduce((acc, d) => {
-    // console.log(acc, d.from, d.count);
+  ora().info("found: " + found)
+  saveToFile(borders, "analyzed_data", "salary_cluster.json")
+  saveToFile(salary_cluster, "analyzed_data", "raw_salary_cluster.json")
 
+  const mean_salary = borders.reduce((acc, d) => {
     return (acc += d.from * d.count);
   }, 0);
-
-  // console.log(mean_salary);
 
   // результат
   return {
@@ -97,44 +100,17 @@ export const analyzeSalaryCluster = (
 };
 
 const analyzeExperienceCluster = (
-  experience_cluster: API.Cluster,
+  cluster: API.Cluster,
   found: number
 ) => {
-  const groups: any[] = [
-    {
-      from: 0,
-      to: 1,
-      count:
-        experience_cluster.items.find((item) => item.name === "Нет опыта")
-          ?.count ?? 0,
-    },
-    {
-      from: 1,
-      to: 3,
-      count:
-        experience_cluster.items.find(
-          (item) => item.name === "От 1 года до 3 лет"
-        )?.count ?? 0,
-    },
-    {
-      from: 3,
-      to: 6,
-      count:
-        experience_cluster.items.find((item) => item.name === "От 3 до 6 лет")
-          ?.count ?? 0,
-    },
-    {
-      from: 6,
-      to: null,
-      count:
-        experience_cluster.items.find((item) => item.name === "Более 6 лет")
-          ?.count ?? 0,
-    },
+  const groups = [
+    { from: 0, to: 1, count: cluster.items.find((item) => item.name === "Нет опыта")?.count ?? 0 },
+    { from: 1, to: 3, count: cluster.items.find((item) => item.name === "От 1 года до 3 лет")?.count ?? 0 },
+    { from: 3, to: 6, count: cluster.items.find((item) => item.name === "От 3 до 6 лет")?.count ?? 0, },
+    { from: 6, to: null, count: cluster.items.find((item) => item.name === "Более 6 лет")?.count ?? 0 },
   ];
-
-  groups.forEach((exp) => {
-    exp.ratio = parseFloat((exp.count / found).toFixed(2));
-  });
-
-  return groups;
+  return groups.map(group => {return {...group, ratio: parseFloat((group.count / found).toFixed(2))}});
 };
+
+
+
