@@ -30,7 +30,7 @@
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "ts-node": "^10.7.0",
-    "typeorm": "^0.2.45",
+    "typeorm": "^0.3.0",
     "typescript": "^4.7.0-dev.20220308"
   },
   "devDependencies": {
